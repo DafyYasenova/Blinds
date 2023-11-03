@@ -5,7 +5,8 @@ export default function Create(){
             <h2>ADD NEW PRODUCT</h2>
             <form  className="create-form">
                 <input type="text" name="name" id="name" placeholder="Name" />
-                <input type="text" name="name" id="productNumber" placeholder="Product Number" />
+                <input type="text" name="product-number" id="productNumber" placeholder="Product Number" />
+                <input type="text" name="color" id="product-color" placeholder="Colors" />
                 <input type="text" name="imageUrl" id="product-image" placeholder="Image" />
                 <input type="text" name="category" id="product-category" placeholder="Category" />
                 <input type="text" name="maretial" id="product-material" placeholder="Material" />
