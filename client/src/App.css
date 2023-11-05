@@ -322,3 +322,37 @@ footer ul li i {
 .not-found img {
   max-height: 600px;
 }
+
+
+.search-form{
+text-align: center;
+  background: url('./Images/feya.jpg'), no-repeat, center;
+  background-size: cover;
+  
+}
+.search input{
+  text-align: center;
+  height: 50px;
+  width: 400px;
+}
+.search button,
+.details-btn{
+  
+  background: antiquewhite;
+  color: mediumvioletred;
+  width: 17%;
+  border: 0;
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 5px 2px 8px 5px #c19595;
+}
+.search-wrapper button:hover{
+  background-color: mediumvioletred;
+  font-size: 20px;
+  border: 0;
+  color: antiquewhite;
+  
+  cursor: pointer;
+}
