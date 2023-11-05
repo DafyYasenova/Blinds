@@ -10,7 +10,7 @@ export default function Create(){
                 <input type="text" name="imageUrl" id="product-image" placeholder="Image" />
                 <input type="text" name="category" id="product-category" placeholder="Category" />
                 <input type="text" name="maretial" id="product-material" placeholder="Material" />
-                <textarea id="product-description" name="description" placeholder="Description" rows="5"
+                <textarea id="product-description" name="description" placeholder="Description" rows="3"
                     cols="50"></textarea>
 
                 <input type="text" name="price" id="product-price" placeholder="Price" />

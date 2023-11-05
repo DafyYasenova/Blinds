@@ -11,6 +11,7 @@ import NotFound from './components/NotFound'
 import Details from './components/Details'
 import Catalog from './components/Catalog'
 import Footer from './components/Footer'
+import Search from './components/Search'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
          <Route path='/not-found' element={<NotFound />} />
          <Route path='/catalog' element={<Catalog />} />
          <Route path='/create' element={<Create />} />
+         <Route path='/search' element={<Search />} />
 
         
 
