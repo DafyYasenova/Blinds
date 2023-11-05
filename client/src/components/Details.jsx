@@ -10,6 +10,14 @@ export default function Details(){
                     officiis nesciunt maiores, ex quidem nobis velit, vel minima veniam voluptas. Ullam animi eos
                     suscipit iusto illum.
                 </p>
+                <div className="color-options">
+                    <label>
+                        <input type="radio" name="color-options" />
+                        <img src="" alt=""/>
+
+                    </label>
+
+                </div>
                 <button type="submit">Edit</button>
                 <button type="submit">Delete</button>
                 <button type="submit">Like</button>

@@ -1,4 +1,4 @@
-export default function Welcome(){
+export default function About(){
     return (
         <section className="welcome">
         <h2>Welcome to the world of blinds</h2>
