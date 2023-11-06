@@ -12,8 +12,8 @@ export default function Details(){
                 </p>
                 <div className="color-options">
                     <label>
-                        <input type="radio" name="color-options" />
-                        <img src="" alt=""/>
+                        {/* <input type="radio" name="color-options" />
+                        <img src="" alt=""/> */}
 
                     </label>
 
@@ -22,6 +22,7 @@ export default function Details(){
                 <button type="submit">Delete</button>
                 <button type="submit">Like</button>
                 <button type="submit">Comment</button>
+                <button type="submit">Buy</button>
                 
                 
                 <div className="comment-area">
@@ -31,7 +32,9 @@ export default function Details(){
                     <button type="submit">Add comment</button>
             </div>
             </div>
-        
+        {/* <div className='comments'>
+            <h2>All comments: </h2>
+        </div> */}
         </section>
     )
 }
