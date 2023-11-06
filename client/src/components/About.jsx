@@ -7,10 +7,16 @@ export default function About(){
             specific requirements of each.
         </p>
         <img src="/Images/foto-shtora.jpg" alt="{{image}}" />
+<h3>Types of internal blinds: </h3>
+<span>Harmony - blind-curtain type, </span>
+<span>Day and night, </span>
+<span>Aluminum horizontal blinds, </span>
+<span>Vertical blinds, </span>
+<span>Photo blinds </span>
 
-        <img src="/Images/shtora-harmoniya.jpg" alt="{{image}}" />
+        {/* <img src="/Images/shtora-harmoniya.jpg" alt="{{image}}" />
         <img src="/Images/vertikalni-shtori.jpg" alt="{{image}}" />
-        <img src="/Images/perde-shtora.jpg" alt="{{image}}" />
+        <img src="/Images/perde-shtora.jpg" alt="{{image}}" /> */}
     </section>
     )
 }
