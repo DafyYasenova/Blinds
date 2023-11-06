@@ -237,7 +237,13 @@ footer ul li i {
   font-size: 15px;
   box-sizing: border-box;
 }
-
+.form .category select{
+border: 0;
+height: 30px;
+width: 100%;
+padding: 6px;
+margin-bottom: 10px;
+}
 .form textarea {
   border: 0;
   min-height: 50px;

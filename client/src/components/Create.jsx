@@ -8,7 +8,18 @@ export default function Create(){
                 <input type="text" name="product-number" id="productNumber" placeholder="Product Number" />
                 <input type="text" name="color" id="product-color" placeholder="Colors" />
                 <input type="text" name="imageUrl" id="product-image" placeholder="Image" />
-                <input type="text" name="category" id="product-category" placeholder="Category" />
+                <div className="category">
+                            <select  placeholder="Category" name="category" >
+                                <option value="">Category</option>
+                                <option value="Vertical blinds">Vertical Blinds</option>
+                                <option value="Harmony Blinds">Harmony</option>
+                                <option value="Day and nigth Blinds">Day and night</option>
+                                <option value="Aluminium horizontal blinds">Aluminium horizontal blinds</option>
+                                <option value="Photo blinds">Photo blinds</option>
+                                
+
+                            </select>
+                        </div>
                 <input type="text" name="maretial" id="product-material" placeholder="Material" />
                 <textarea id="product-description" name="description" placeholder="Description" rows="3"
                     cols="50"></textarea>
