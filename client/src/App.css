@@ -135,16 +135,16 @@ h2 {
 
 } */
 
-.catalog {
+/* .catalog {
 
   display: inline-block;
   color: mediumvioletred;
   font-family: "PT Serif", serif;
-  /* background-color: antiquewhite; */
+ 
   padding: 5px 5px;
-}
+} */
 
-.catalog li {
+/* .catalog li {
   border-style:groove;
   border-radius: 5px;
   text-align: center;
@@ -164,7 +164,7 @@ h2 {
 .catalog h3{
  margin:2px 8px 5px;
 display: inline-block;
-}
+} */
 
 
 footer {

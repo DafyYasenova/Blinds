@@ -2,7 +2,7 @@ import styles from './About.module.css';
 
 export default function About() {
     return (
-        <section className="welcome">
+        <section className={styles.welcome}>
             <h2>Welcome to the world of blinds</h2>
             <p>Here you will find a wide variety of blinds, the perfect solution for your interior. We have a large
                 range of models, colors, fabrics and sizes. We work on individual projects, taking into account the

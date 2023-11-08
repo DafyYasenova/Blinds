@@ -1,6 +1,8 @@
+import styles from './Catalog.module.css';
+
 export default function Catalog(){
     return(
-        <section className="catalog">
+        <section className={styles.catalog}>
             <h2>CATALOG</h2>
             <ul>
                 <li><a href="#">
