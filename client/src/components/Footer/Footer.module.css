@@ -1,0 +1,29 @@
+footer {
+    background: linear-gradient(90deg, rgba(227, 218, 192, 1) 0%, rgba(239, 239, 229, 1) 12%);
+    color: mediumvioletred;
+    font-size: 20px;
+    padding: 0 20px;
+    
+  }
+  
+  footer p {
+    display: inline-block;
+    width: 55%;
+    text-align: center;
+  
+  }
+  
+  footer ul {
+    display: inline-block;
+    padding-left: 10px;
+  }
+  
+  footer ul a {
+    color: mediumvioletred;
+  }
+  
+  footer ul li i {
+    border: 1px solid mediumvioletred;
+    border-radius: 50%;
+    padding: 5px;
+  }

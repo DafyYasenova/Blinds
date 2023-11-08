@@ -167,9 +167,9 @@ display: inline-block;
 } */
 
 
-footer {
+/* footer {
 
-  /* background: rgb(227, 218, 192); */
+ 
   background: linear-gradient(90deg, rgba(227, 218, 192, 1) 0%, rgba(239, 239, 229, 1) 12%);
   color: mediumvioletred;
   
@@ -199,7 +199,7 @@ footer ul li i {
   border: 1px solid mediumvioletred;
   border-radius: 50%;
   padding: 5px;
-}
+} */
 
 
 .form {

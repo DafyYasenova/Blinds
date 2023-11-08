@@ -1,6 +1,7 @@
+import styles from './Footer.module.css';
 export default function Footer(){
     return (
-        <footer>
+        <footer className={styles.footer}>
 
         <ul>
             <li><a href="https://www.facebook.com"><i className="fab fa-facebook"></i></a></li>
