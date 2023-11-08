@@ -1,6 +1,8 @@
+import styles from './Home.module.css';
+
 export default function SideHeader() {
     return (
-        <section className="site-header">
+        <section className={styles["site-header"]}>
             <h1> A perfect solution for your interior</h1>
             <button>Go to gallery</button>
         </section>

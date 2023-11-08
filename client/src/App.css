@@ -76,7 +76,7 @@ a:hover {
 main{
   min-height:562px;
 }
-.site-header {
+/* .site-header {
   background: url('./Images/original_2-scaled.jpg'), no-repeat, center;
   background-size: cover;
   height: 597px;
@@ -108,15 +108,15 @@ main{
   color: mediumvioletred;
   cursor: pointer;
 }
+*/
 
-h2 {
+/* h2 {
   text-align: center;
   font-family: "PT Serif";
   font-size: 32px;
   font-style: italic;
   letter-spacing: 2px;
-}
-
+} */
 /* .welcome {
   text-align: center;
   color: mediumvioletred;
