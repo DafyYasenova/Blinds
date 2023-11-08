@@ -1,0 +1,25 @@
+.welcome {
+    text-align: center;
+    color: mediumvioletred;
+    font-family: "PT Serif", serif;
+    margin: 0 auto;
+    padding: 7px 0;
+    font-size: 20px;
+   
+  }
+   h2, h3{
+    color: mediumvioletred;
+    text-align: center;
+  }
+  p, div{
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .welcome img {
+    height: 300px;
+  }
+  
+  img{
+    max-width: 1107px ;
+  }
