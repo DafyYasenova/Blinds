@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header/Header'
@@ -14,7 +15,6 @@ import Footer from './components/Footer/Footer'
 import Search from './components/Search/Search'
 import Edit from './components/Edit/Edit'
 import Loading from './components/Loading/Loading'
-import { useState, useEffect } from 'react'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +22,8 @@ function App() {
   useEffect(() => {
     setIsLoading(false);
   }, []);
+
+  
 
   return (
     <>

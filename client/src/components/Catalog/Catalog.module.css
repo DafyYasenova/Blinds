@@ -5,17 +5,24 @@
     font-family: "PT Serif", serif;
     padding: 5px 5px;
   }
-  
+  .catalog ul{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .catalog li {
+   
     border-style:groove;
     border-radius: 5px;
     text-align: center;
-    width: 300px;
-    padding: 11px 5px ;
-    margin: 5px 22px;
+    width: 320px;
+    height: 380px;
+    padding: 5px 5px ;
+    margin: 5px 10px;
   }
   
-  .catalog img {
+  .catalog  img {
   
     min-width: 200px;
     max-width: 300px;
@@ -24,8 +31,9 @@
     color: mediumvioletred;
   }
   .catalog h3{
-   margin:2px 8px 5px;
-  display: inline-block;
+   margin:5px auto;
+
+  display: block;
   }
   
   .details-btn{
