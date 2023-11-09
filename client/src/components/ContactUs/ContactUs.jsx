@@ -2,7 +2,16 @@ import styles from './ContactUs.module.css';
 
 export default function ContactUs(){
     return(
-        <section id="contact-us">
+        <section className={styles["contact-us"]} id="contact-us"> 
+        <div className={styles.contact}>
+                <h2>Blinds dreams LTD</h2>
+                <p>Here you will find a wide variety of blinds, the perfect solution for your interior. We have a large
+                range of models, colors, fabrics and sizes. </p>
+                <p>We are always at your disposal. Do not hesitate to contact us for a personal consultation and to satisfy your desire.</p>
+                <p>Bulgaria</p>
+                <p>Madan, Smolyan</p>
+                <p>+359 893 *** ***</p>
+            </div>
             <div className={styles["contact-form"]}> 
       
                 <h2>CONTACT US</h2>
@@ -16,6 +25,7 @@ export default function ContactUs(){
 
                 </form>
             </div>
+           
            
         </section>
     )

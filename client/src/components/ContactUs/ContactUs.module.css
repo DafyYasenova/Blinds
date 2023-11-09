@@ -1,3 +1,25 @@
+.contact{
+  color: mediumvioletred;
+
+}
+.contact-us{
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.contact-us div {
+ 
+  width: 420px;
+  height: 380px;
+  padding: 10px 5px ;
+  margin: 5px 5px;
+}
+.contact-form{
+  float: right;
+}
+.contact{
+  float: left;
+}
 .contact-form form {
 
     background: rgb(246, 246, 243);
