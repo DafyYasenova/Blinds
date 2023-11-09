@@ -12,6 +12,7 @@ import Details from './components/Details/Details'
 import Catalog from './components/Catalog/Catalog'
 import Footer from './components/Footer/Footer'
 import Search from './components/Search/Search'
+import Edit from './components/Edit/Edit'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
          <Route path='/create' element={<Create />} />
          <Route path='/search' element={<Search />} />
          <Route path='/details' element={<Details />} />
+         <Route path='/edit' element={<Edit />} />
          <Route path='*' element={<NotFound />} />
 
 
