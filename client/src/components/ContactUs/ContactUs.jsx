@@ -1,9 +1,12 @@
+import styles from './ContactUs.module.css';
+
 export default function ContactUs(){
     return(
         <section id="contact-us">
-            <div className="form">
+            <div className={styles["contact-form"]}> 
+      
                 <h2>CONTACT US</h2>
-                <form className="contact-form">
+                <form >
                     <input type="text" name="name" id="name" placeholder="Name" />
                     
                     <textarea id="contact-area" name="contact" placeholder="Add your message" rows="5"
@@ -13,6 +16,7 @@ export default function ContactUs(){
 
                 </form>
             </div>
+           
         </section>
     )
 }
