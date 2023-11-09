@@ -1,7 +1,9 @@
+import styles from './Search.module.css';
+
 export default function Search() {
     return (
-        <section className="search">
-            <section className="search-form">
+        <section className={styles.search}>
+            <section className={styles["search-form"]}>
                 <h2>Search</h2>
 
                 <form className="search">
@@ -14,34 +16,34 @@ export default function Search() {
                
 
                 <div id="search-container">
-                    <ul className="blind-wrapper">
+                    <ul className={styles["blind-wrapper"]}>
 
-                        <li className="blind">
+                        <li className={styles.blind}>
                              <img src="/Images/vertikalni-shtori.jpg" height="200px" alt="shtora" /> 
 
                             <p>
                                 <strong>Model: </strong><span className="model">Blinds</span>
                             </p>
 
-                            <a className="details-btn" href="">Details</a>
+                            <a className={styles["details-btn"]} href="">Details</a>
                         </li>
-                        <li className="blind">
+                        <li className={styles.blind}>
                              <img src="/Images/vertikalni-shtori.jpg" height="200px" alt="shtora" /> 
 
                             <p>
                                 <strong>Model: </strong><span className="model">Blinds</span>
                             </p>
 
-                            <a className="details-btn" href="">Details</a>
+                            <a className={styles["details-btn"]} href="">Details</a>
                         </li>
-                        <li className="blind">
+                        <li className={styles.blind}>
                              <img src="/Images/vertikalni-shtori.jpg" height="200px" alt="shtora" /> 
 
                             <p>
                                 <strong>Model: </strong><span className="model">Blinds</span>
                             </p>
 
-                            <a className="details-btn" href="">Details</a>
+                            <a className={styles["details-btn"]} href="">Details</a>
                         </li>
                     </ul>
 
