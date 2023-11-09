@@ -1,12 +1,12 @@
 import styles from './Details.module.css';
 
-export default function Details(){
-    return(
+export default function Details() {
+    return (
         <section className={styles.details}>
 
             <h2>Name Product</h2>
             <div className={styles["image-div"]}>
-                <img src="/Images/original_2-scaled.jpg" alt="{{image}}"/>
+                <img src="/Images/original_2-scaled.jpg" alt="{{image}}" />
             </div>
             <div className={styles["details-product"]}>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quam cupiditate dicta earum
@@ -26,18 +26,19 @@ export default function Details(){
                 <button type="submit">Like</button>
                 <button type="submit">Comment</button>
                 <button type="submit">Buy</button>
-                
-                
+
+
                 <div className={styles["comment-area"]}>
-                <textarea id="comment-area" name="comment" placeholder="Your comment" rows="3"
+                    <textarea id="comment-area" name="comment" placeholder="Your comment" rows="3"
                         cols="40"></textarea>
 
                     <button type="submit">Add comment</button>
+                </div>
             </div>
+            <div className={styles.comments}>
+                <h3>Comments: </h3>
+                <p>User: </p><p>Comment</p>
             </div>
-        {/* <div className='comments'>
-            <h2>All comments: </h2>
-        </div> */}
         </section>
     )
 }
