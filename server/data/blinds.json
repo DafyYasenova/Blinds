@@ -1,14 +1,25 @@
 {
     "3fdc2861-b343-4e22-8729-1e7de07e7e49": {
-        "name": "vertical",
+        "name": "Vertical Grey",
         "productNumber": "V95lkp",
         "colors": "[white, beige, red]",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX6v3fQwRmjtcta78MGUvKSOaY0OrFwhuZhg&usqp=CAU",
+        "imageUrl": "https://www.shtori-bg.com/images/products/pic_95616518.jpg",
         "category": "Vertical Blinds",
         "material": "cotton",
         "description": "cool blinds",
         "price": "112",
         "_id": "3fdc2861-b343-4e22-8729-1e7de07e7e49"
+    },
+    "b610d17e-4329-4cdb-852f-16fc68f5010e": {
+        "name": "Harmony Blinds",
+        "productNumber": "H55p",
+        "colors": "[white, beige, red, green, brown, grey, yellow, blue, black, purple]",
+        "imageUrl": "https://zavesi.bg/media/cache/bd/a2/thumb9_perde-shtori-vertikalni-den-i-nosht-shtora-tip-perde-1.jpg",
+        "category": "Harmony Blinds",
+        "material": "silk",
+        "descriprion": "Harmony blind with a wide variety of colors, vertical single elements",
+        "price": "135",
+        "_id": "b610d17e-4329-4cdb-852f-16fc68f5010e"
     },
     "caf7a1bc-df84-4b7e-b6f3-d5e072cb68c7": {
         "name": "Vertical blinds",
@@ -42,7 +53,18 @@
         "description": "Harmoniya blind with a wide variety of colors, vertical single elements",
         "price": "150",
         "_id": "58cba03b-74fa-45d2-9639-b7e4d2b1aa35"
+    },
+    "f2ad9138-080e-4ce4-ab8a-d0cd2d69d0bf": {
+        "name": "Purpuless",
+        "productNumber": "V55p",
+        "colors": "[white, beige, red, green, brown, grey, yellow, blue, black, purple]",
+        "imageUrl": "https://frankfurt.apollo.olxcdn.com/v1/files/y2lcw8xq8xkx2-BG/image;s=1600x854",
+        "category": "Vertilal Blinds",
+        "material": "cloth",
+        "descriprion": "Vertical blind with a wide variety of colors, vertical single elements",
+        "price": "90",
+        "_id": "f2ad9138-080e-4ce4-ab8a-d0cd2d69d0bf"
     }
+}
     
 
-}
