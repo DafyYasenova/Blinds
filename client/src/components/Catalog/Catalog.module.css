@@ -28,3 +28,16 @@
   display: inline-block;
   }
   
+  .details-btn{
+      
+    background: antiquewhite;
+    color: mediumvioletred;
+    width: 17%;
+    border: 0;
+    padding: 12px;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 5px 2px 8px 5px #c19595;
+  
+  }
