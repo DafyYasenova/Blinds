@@ -8,7 +8,7 @@ export default function Login(){
                     <input type="password" name="password" id="login-password" placeholder="password" />
 
                     <button type="submit">login</button>
-                    <p className="message">Not registered? <a href="/login">Register now</a></p>
+                    <p className="message">Not registered? <a href="/register">Register now</a></p>
                 </form>
             </div>
         </section>

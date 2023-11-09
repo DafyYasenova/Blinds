@@ -32,6 +32,7 @@ function App() {
          <Route path='/create' element={<Create />} />
          <Route path='/search' element={<Search />} />
          <Route path='/details' element={<Details />} />
+         <Route path='*' element={<NotFound />} />
 
 
         

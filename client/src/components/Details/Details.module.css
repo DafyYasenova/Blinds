@@ -1,0 +1,56 @@
+.details img {
+  max-height: 300px;
+  
+}
+
+.details-product {
+  width: 450px;
+  padding-right: 100px;
+  display: block;
+  font-size: 22px;
+  float: right;
+
+}
+
+.details h2, h3{
+  color: mediumvioletred;
+ 
+}
+.comment-area {
+
+  padding-top: 20px;
+  display: block;
+  text-align: center;
+  padding-right: 35px;
+}
+
+.image-div {
+  max-width: 300px;
+  padding: 20px ;
+  display: block;
+  float: left;
+  text-align: center;
+}
+.details-product button {
+
+  background: antiquewhite;
+  font-size: 18px;
+  border: 0;
+  margin: 10px 5px;
+  color: mediumvioletred;
+  box-shadow: 5px 2px 8px 5px #c19595;
+  padding: 5px 10px;
+  border-radius: 5px;
+
+}
+
+.details button:hover {
+  background-color: mediumvioletred;
+  font-size: 25px;
+  
+  border: 0;
+  color: antiquewhite;
+  box-shadow: mediumvioletred (rgb(206, 206, 206));
+  cursor: pointer;
+  
+}
