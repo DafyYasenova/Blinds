@@ -1,0 +1,29 @@
+.colors-options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.colors-options .container {
+    display: inline-block;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+  
+.colors-options input {
+    height: 20px;
+  }
+  
+.options-label{
+    text-align: left;
+    font-size: 10px;
+    padding: 0 10px 10px 10px;
+}
+
+  
+ 
+ 
+  
+ 
