@@ -9,4 +9,20 @@ export const getAll = async () => {
     // console.log(blinds)
 
     return blinds;
-}   
+};
+
+export const create = async (blindData) => {
+    const result = await request.post(baseUrl, blindData);
+
+    console.log(result);
+
+    return result;
+};
+
+export const getOne = async (blindId) => {
+    const result = await request.get(`${baseUrl}/${blindId}`);
+
+    console.log(result);
+
+    return result;
+}
