@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 export default function Details() {
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
-    console.log(blindId)
+    // console.log(blindId)
 
     useEffect(() => {
         blindService.getOne(blindId)
@@ -18,17 +18,17 @@ export default function Details() {
     return (
         <section className={styles.details}>
 
-            <h2>Name Product</h2>
+            <h2>{blinds.name}</h2>
             <div className={styles["image-div"]}>
-                <img src="/Images/original_2-scaled.jpg" alt="{{image}}" />
+                <img src={blinds.imageUrl} alt={blinds.name} />
             </div>
             <div className={styles["details-product"]}>
                 <article>
-                    <p>Category: options</p>
-                    <p>Description</p>
-                    <p>Material: mm Product Number: pN</p>
-                    <p>Price: p$</p>
-                    <p>Colors clr</p>
+                    <p>Category: {blinds.category}</p>
+                    <p>{blinds.description}</p>
+                    <p>Material: {blinds.material}  Product Number: {blinds.productNumber}</p>
+                    <p>Price: {blinds.price} lv.</p>
+                    <p>Colors {blinds.colors}</p>
                 </article>
                 
                 

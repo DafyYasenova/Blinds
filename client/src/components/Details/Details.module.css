@@ -4,11 +4,13 @@
 }
 
 .details-product {
+ 
   width: 450px;
   padding-right: 100px;
   display: block;
   font-size: 22px;
   float: right;
+
 
 }
 
@@ -16,17 +18,19 @@
   color: mediumvioletred;
  
 }
-.comment-area {
+.comment-area{
 
   padding-top: 20px;
-  display: block;
+  display: inline-block;
   text-align: center;
   padding-right: 35px;
 }
 
-.image-div {
-  max-width: 300px;
-  padding: 20px ;
+.image-div img{
+  height: 300px;
+  max-height: 300px;
+  max-width: 400px;
+  padding: 30px ;
   display: block;
   float: left;
   text-align: center;
@@ -56,6 +60,8 @@
 }
 .comments{
   text-align: left;
+  padding-left: 30px;
+  
 }
 .comments h3{
 
