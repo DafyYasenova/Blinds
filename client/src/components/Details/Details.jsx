@@ -2,6 +2,7 @@ import styles from './Details.module.css';
 import { useParams } from 'react-router-dom';
 import * as blindService from '../../services/blindService';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function Details() {
@@ -32,7 +33,8 @@ export default function Details() {
                 </article>
                 
                 
-                <button type="submit">Edit</button>
+                
+                <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
                 <button type="submit">Delete</button>
                 <button type="submit">Like</button>
                 <button type="submit">Comment</button>

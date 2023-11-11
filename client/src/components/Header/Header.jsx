@@ -5,7 +5,7 @@ export default function Header(){
         <div>
         <header>
         <section className="navigation">
-            <p><Link to="/"><img src="/Images/blinds-logo.png" height="38px"/> <span>BLINDS</span></Link></p>
+            <p><img src="/Images/blinds-logo.png" height="38px"/> <Link to="/"><span>BLINDS</span></Link></p>
             <nav>
                 <ul>
                     <li><Link to="/about">ABOUT</Link></li>
