@@ -41,7 +41,7 @@ function App() {
           <Route path='/catalog' element={<Catalog />} />
           <Route path='/create' element={<Create />} />
           <Route path='/search' element={<Search />} />
-          <Route path='/details' element={<Details />} />
+          <Route path='/details/:blindsId' element={<Details />} />
           <Route path='/edit' element={<Edit />} />
           <Route path='*' element={<NotFound />} />
 
