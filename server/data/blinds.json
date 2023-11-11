@@ -10,6 +10,28 @@
         "price": "112",
         "_id": "3fdc2861-b343-4e22-8729-1e7de07e7e49"
     },
+    "62c9010e-b90f-4ed7-b0cc-8f03cda6cec1": {
+        "name": "Butterflies",
+        "productNumber": "P512p",
+        "colors": "[purple, pink]",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4FzoAtXXaugKRfOERrR33OMqsrZf2FoGww&usqp=CAU",
+        "category": "Photo Blinds",
+        "material": "cloth",
+        "descriprion": "Photo blind - Butterflies",
+        "price": "129",
+        "_id": "62c9010e-b90f-4ed7-b0cc-8f03cda6cec1"
+    },
+    "45f9c97a-7f06-4b1b-bdd1-b2a357feb203": {
+        "name": "Perfect Day",
+        "productNumber": "DN87p",
+        "colors": "[purple, pink, red, brown, blue, white, yellow]",
+        "imageUrl": "https://aluroll.bg/wp-content/uploads/2020/09/den-i-nosht-4.png",
+        "category": "Day and nigth",
+        "material": "cotton",
+        "descriprion": "Day and nigth blind",
+        "price": "99",
+        "_id": "45f9c97a-7f06-4b1b-bdd1-b2a357feb203"
+    },
     "b610d17e-4329-4cdb-852f-16fc68f5010e": {
         "name": "Harmony Blinds",
         "productNumber": "H55p",
