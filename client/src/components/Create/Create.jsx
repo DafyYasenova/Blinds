@@ -1,13 +1,28 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styles from './Create.module.css';
+import * as blindService from '../../services/blindService';
+
+
 export default function Create({
 
-
+    onCreateBlindSubmit
 }) {
     const [values, setValues] = useState({
         name: '',
         productNumber: '',
-        color: [],
+        // color: {
+        white: false, 
+        yellow: false,
+        blue: false,
+        purple: false,
+        pink: false,
+        grey: false,
+        brown: false,
+        beige: false, 
+        red: false,
+        orange: false,
+        violet: false,
+    // },
         imageUrl: '',
         category: '',
         material: '',
@@ -17,14 +32,29 @@ export default function Create({
     })
 
     const onChangeHandler = (e) => {
-        setValues(state => ({ ...state, [e.target.name]: e.target.value }))
+        let value = e.target.value;
+
+        switch (e.target.type) {
+            case 'number': value = Number(e.target.value); break;
+            case 'checkbox': value = e.target.checked; break;
+            default:
+                value = e.target.value;
+                break;
+        }
+        setValues(state => ({ ...state, [e.target.name]: value }))
     }
 
+   
     const onSubmit = (e) => {
         e.preventDefault();
-        onCreateBlindSubmit(values)
-        console.log(onCreateBlindSubmit(data))
+        // onCreateBlindSubmit(values)
+        // console.log(onCreateBlindSubmit(data))
+       
+        console.log('yes')
+        console.log(values)
     }
+
+
     return (
         <section id="create">
             <div className="form" onSubmit={onSubmit}>
@@ -36,51 +66,51 @@ export default function Create({
                     <label className="options-label">Colors:</label>
                     <div className={styles["colors-options"]}>
 
-                    <label htmlFor="white" className="container white">white
-                        <input type="checkbox" name="white" />
+                        <label htmlFor="white" className="container white">white
+                            <input type="checkbox" name="white" checked={values.white} onChange={onChangeHandler} />
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="yellow" className="container white">yellow
-                        <input type="checkbox" name="yellow" />
+                        </label>
+                        <label htmlFor="yellow" className="container white">yellow
+                            <input type="checkbox" name="yellow" checked={values.yellow} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="blue" className="container blue">blue
-                        <input type="checkbox" name="blue" />
+                        </label>
+                        <label htmlFor="blue" className="container blue">blue
+                            <input type="checkbox" name="blue" checked={values.blue} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="purple" className="container purple">purple
-                        <input type="checkbox" name="purple"  />
+                        </label>
+                        <label htmlFor="purple" className="container purple">purple
+                            <input type="checkbox" name="purple" checked={values.purple} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="pink" className="container pink">pink
-                        <input type="checkbox" name="pink"  />
+                        </label>
+                        <label htmlFor="pink" className="container pink">pink
+                            <input type="checkbox" name="pink" checked={values.pink} onChange={onChangeHandler} />
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="grey" className="container grey">grey
-                        <input type="checkbox" name="grey"  />
+                        </label>
+                        <label htmlFor="grey" className="container grey">grey
+                            <input type="checkbox" name="grey" checked={values.grey} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="brown" className="container brown">brown
-                        <input type="checkbox" name="brown" />
+                        </label>
+                        <label htmlFor="brown" className="container brown">brown
+                            <input type="checkbox" name="brown" checked={values.brown} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="beige" className="container beige">beige
-                        <input type="checkbox" name="beige"  />
+                        </label>
+                        <label htmlFor="beige" className="container beige">beige
+                            <input type="checkbox" name="beige" checked={values.beige} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="red" className="container red">red
-                        <input type="checkbox" name="red" />
+                        </label>
+                        <label htmlFor="red" className="container red">red
+                            <input type="checkbox" name="red" checked={values.red} onChange={onChangeHandler} />
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="orange" className="container orange">orange
-                        <input type="checkbox" name="orange"  />
+                        </label>
+                        <label htmlFor="orange" className="container orange">orange
+                            <input type="checkbox" name="orange" checked={values.orange} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-                    <label htmlFor="violet" className="container violet">violet
-                        <input type="checkbox" name="violet"  />
+                        </label>
+                        <label htmlFor="violet" className="container violet">violet
+                            <input type="checkbox" name="violet" checked={values.violet} onChange={onChangeHandler}/>
                             <span className="checkmark"></span>
-                    </label>
-             
+                        </label>
+
                     </div>
                     <input value={values.imageUrl} onChange={onChangeHandler} type="text" name="imageUrl" id="product-image" placeholder="Image" />
                     <div className="category">
@@ -98,7 +128,7 @@ export default function Create({
                     <textarea value={values.description} onChange={onChangeHandler} id="description" name="description" placeholder="Description" rows="3"
                         cols="50"></textarea>
 
-                    <input value={values.price} onChange={onChangeHandler} type="text" name="price" id="product-price" placeholder="Price for sq.m" />
+                    <input value={values.price} onChange={onChangeHandler} type="number" name="price" id="price" placeholder="Price for sq.m" />
 
 
                     <button type="submit">Add new product</button>
