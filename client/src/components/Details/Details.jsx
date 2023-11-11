@@ -1,6 +1,20 @@
 import styles from './Details.module.css';
+import { useParams } from 'react-router-dom';
+import * as blindService from '../../services/blindService';
+import { useState, useEffect } from 'react';
+
 
 export default function Details() {
+    const { blindId } = useParams();
+    const [blinds, setBlinds] = useState({});
+    console.log(blindId)
+
+    useEffect(() => {
+        blindService.getOne(blindId)
+            .then(result => {
+                setBlinds(result)
+            })
+    },[blindId])
     return (
         <section className={styles.details}>
 
@@ -9,18 +23,15 @@ export default function Details() {
                 <img src="/Images/original_2-scaled.jpg" alt="{{image}}" />
             </div>
             <div className={styles["details-product"]}>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quam cupiditate dicta earum
-                    officiis nesciunt maiores, ex quidem nobis velit, vel minima veniam voluptas. Ullam animi eos
-                    suscipit iusto illum.
-                </p>
-                <div className="color-options">
-                    <label>
-                        {/* <input type="radio" name="color-options" />
-                        <img src="" alt=""/> */}
-
-                    </label>
-
-                </div>
+                <article>
+                    <p>Category: options</p>
+                    <p>Description</p>
+                    <p>Material: mm Product Number: pN</p>
+                    <p>Price: p$</p>
+                    <p>Colors clr</p>
+                </article>
+                
+                
                 <button type="submit">Edit</button>
                 <button type="submit">Delete</button>
                 <button type="submit">Like</button>
@@ -28,7 +39,7 @@ export default function Details() {
                 <button type="submit">Buy</button>
 
 
-                <div className={styles["comment-area"]}>
+                <div className={styles["comment-area"]} >
                     <textarea id="comment-area" name="comment" placeholder="Your comment" rows="3"
                         cols="40"></textarea>
 
@@ -37,7 +48,7 @@ export default function Details() {
             </div>
             <div className={styles.comments}>
                 <h3>Comments: </h3>
-                <p>User: </p><p>Comment</p>
+                <p><img src='/Images/user-icon.jpg' alt="user-icon" className={styles["user-icon"]}></img> User: </p>  <p> <img src="/Images/user-comment-icon.png"className={styles['user-icon']}></img> Comment</p>
             </div>
         </section>
     )
