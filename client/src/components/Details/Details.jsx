@@ -16,6 +16,10 @@ export default function Details() {
                 setBlinds(result)
             })
     },[blindId])
+
+    const deleteClickHandler = () =>{
+        onDeleteClick(blindId)
+    }
     return (
         <section className={styles.details}>
 
@@ -26,16 +30,16 @@ export default function Details() {
             <div className={styles["details-product"]}>
                 <article>
                     <p>Category: {blinds.category}</p>
-                    <p>{blinds.description}</p>
+                    <p>Info: {blinds.description}</p>
                     <p>Material: {blinds.material}  Product Number: {blinds.productNumber}</p>
                     <p>Price: {blinds.price} lv.</p>
-                    <p>Colors {blinds.colors}</p>
+                    {/* <p>Colors {blinds.colors}</p> */}
                 </article>
                 
                 
                 
                 <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
-                <button type="submit">Delete</button>
+                <button type="submit" onClick={deleteClickHandler}>Delete</button>
                 <button type="submit">Like</button>
                 <button type="submit">Comment</button>
                 <button type="submit">Buy</button>
