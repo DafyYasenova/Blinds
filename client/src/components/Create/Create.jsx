@@ -1,12 +1,12 @@
 import { useState } from "react"
 import styles from './Create.module.css';
 import * as blindService from '../../services/blindService';
- 
+import { useNavigate } from "react-router-dom";
  
 const formInitialState = {
     name: '',
     productNumber: '',
- 
+    
     colors: {
         white: false,
         yellow: false,
@@ -27,25 +27,13 @@ const formInitialState = {
     price: '',
 }
 export default function Create(
- 
- 
-) {
+    
+    
+    ) {
+    const navigate = useNavigate();
     const [productDetails, setProductDetails] = useState(formInitialState) 
  
  
-    // const onChangeHandler = (e) => {
-    //     let value = e.target.value;
- 
-    //     switch (e.target.type) {
-    //         case 'number': value = Number(e.target.value); break;
-    //         // case 'checkbox': value = e.target.checked; break;
-    //         default:
-    //             value = e.target.value;
-    //             break;
-    //     }
-    //     setValues(state => ({ ...state, [e.target.name]: value }))
- 
-    // }
     const onChangeHandler = (e) => {
         let {name, value, type} = e.target;
         setProductDetails(state => ({ ...state, [name]: type === 'number' ? Number(value) : value}))
@@ -58,38 +46,37 @@ export default function Create(
         setProductDetails(state => ({ ...state, colors: { ...state.colors, [name]: value } }))
  
     }
-    const resetHandler = () => {
-        setProductDetails(formInitialState);
-    }
-  
+    // const resetHandler = () => {
+    //     console.log('reset')
+    //     setProductDetails(formInitialState);
+        
+    // }
+    
     const onSubmit = (e) => {
         e.preventDefault();
-        onCreateBlindSubmit(productDetails)
-       
-        
-        
+        onCreateBlindSubmit(productDetails);
+        // resetHandler();
+     
     }
 const onCreateBlindSubmit = (data) =>{
-   
+    
             blindService.create(productDetails)
                 .then(result => {
                     setProductDetails(result)
+                    navigate('/catalog')
                 })
-    
-    console.log('data',  data)
-    resetHandler()
- 
+                .catch((error) => console.log(error('Error creating blind:', error)))
+      
 }
  
     return (
         <section id="create">
-            <div className="form" onSubmit={onSubmit}>
+            <div className="form">
                 <h2>ADD NEW PRODUCT</h2>
-                <form className="create-form">
+                <form className="create-form"  onSubmit={onSubmit}>
                     <input value={productDetails.name} onChange={onChangeHandler} type="text" name="name" id="name" placeholder="Name" />
                     <input value={productDetails.productNumber} onChange={onChangeHandler} type="text" name="productNumber" id="productNumber" placeholder="Product Number" />
-                    {/* <input value={values.color} onChange={onChangeHandler} type="text" name="color" id="product-color" placeholder="Colors"/> */}
-                    <label className="options-label">Colors:</label>
+                    
                     <div className={styles["colors-options"]}>
  
                         <label htmlFor="white" className="container white">white

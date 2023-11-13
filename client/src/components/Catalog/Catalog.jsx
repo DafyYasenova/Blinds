@@ -18,7 +18,7 @@ export default function Catalog() {
         <section className={styles.catalog}>
             <h2>CATALOG</h2>
             <ul>
-                {blinds.map(b => <CatalogItem key={b._id} {...b}/>)}
+                {blinds.map(blind => <CatalogItem key={blind._id} {...blind}/>)}
         
             </ul>
             {blinds.length === 0 && <h3>No blinds yet!</h3>}
