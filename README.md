@@ -1,2 +1,2 @@
 # Blinds
-React JS cource project
+React JS course project
