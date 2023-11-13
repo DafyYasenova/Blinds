@@ -17,7 +17,7 @@
     letter-spacing: 2px;
   }
   p, div{
-    text-align: center;
+    /* text-align: center; */
     font-size: 20px;
   }
   

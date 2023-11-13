@@ -14,7 +14,7 @@ export const getAll = async () => {
 export const create = async (blindData) => {
     const result = await request.post(baseUrl, blindData);
 
-    console.log(result);
+    console.log('create:', result);
 
     return result;
 };

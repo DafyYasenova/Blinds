@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function Details() {
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
-    // console.log(blindId)
+ 
 
     useEffect(() => {
         blindService.getOne(blindId)
@@ -20,6 +20,18 @@ export default function Details() {
     const deleteClickHandler = () =>{
         onDeleteClick(blindId)
     }
+
+    const filterColors = (blinds)  => {
+        if (!blinds || !blinds.colors) {
+            return 'No colors available';
+        }
+    
+       const filteredColors = Object.keys(blinds.colors).filter(color => blinds.colors[color] === true);
+     
+        return filteredColors.join(', ');
+    }
+    
+
     return (
         <section className={styles.details}>
 
@@ -28,12 +40,12 @@ export default function Details() {
                 <img src={blinds.imageUrl} alt={blinds.name} />
             </div>
             <div className={styles["details-product"]}>
-                <article>
-                    <p>Category: {blinds.category}</p>
-                    <p>Info: {blinds.description}</p>
-                    <p>Material: {blinds.material}  Product Number: {blinds.productNumber}</p>
-                    <p>Price: {blinds.price} lv.</p>
-                    {/* <p>Colors {blinds.colors}</p> */}
+                <article className={styles["span-style"]}>
+                    <p><span>Category: </span>{blinds.category}</p>
+                    <p><span>Info: </span> {blinds.description}</p>
+                    <p> <span>Material: </span>{blinds.material}  <span>  Product Number: </span> {blinds.productNumber}</p>
+                    <p><span>Price: </span> {blinds.price} lv.</p>
+                    <p> <span>Colors: </span> {filterColors(blinds)}</p>
                 </article>
                 
                 
