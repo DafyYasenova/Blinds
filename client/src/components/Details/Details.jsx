@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 export default function Details() {
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
+    const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true)
  
 
     useEffect(() => {
@@ -31,7 +32,11 @@ export default function Details() {
         return filteredColors.join(', ');
     }
     
-
+const hideShowCommentHandler = (e) => {
+    e.preventDefault()
+    setCommentAreaDisabled(false)
+    console.log('disabled fn')
+}
     return (
         <section className={styles.details}>
 
@@ -53,15 +58,15 @@ export default function Details() {
                 <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
                 <button type="submit" onClick={deleteClickHandler}>Delete</button>
                 <button type="submit">Like</button>
-                <button type="submit">Comment</button>
+                <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
                 <button type="submit">Buy</button>
 
 
-                <div className={styles["comment-area"]} >
-                    <textarea id="comment-area" name="comment" placeholder="Your comment" rows="3"
-                        cols="40"></textarea>
+                <div className={styles["comment-area"] } >
+                    <textarea hidden={isCommentAreaDisabled} id="comment-area" name="comment" placeholder="Your comment" rows="3"
+                        cols="40" ></textarea>
 
-                    <button type="submit">Add comment</button>
+                    <button hidden={isCommentAreaDisabled} onClick={setCommentAreaDisabled} type="submit" >Add comment</button>
                 </div>
             </div>
             <div className={styles.comments}>
