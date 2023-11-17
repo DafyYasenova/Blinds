@@ -1,0 +1,61 @@
+.form {
+
+    background: rgb(246, 246, 243);
+    background: radial-gradient(rgba(246, 246, 243, 1) 100%);
+    max-width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px;
+    box-shadow: mediumvioletred (rgb(206, 206, 206));
+  
+  }
+  
+  .form h2 {
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+  
+  .login-form input {
+  
+    background: white;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 3px;
+    margin: 3px 0 12px;
+    padding: 15px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+ 
+  
+  .form button {
+  
+    text-transform: uppercase;
+    background: antiquewhite;
+    color: mediumvioletred;
+    width: 50%;
+    border: 0;
+    padding: 13px;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 5px 2px 8px 5px #c19595;
+  
+  }
+  
+  .form button:hover {
+    background: mediumvioletred;
+    color: antiquewhite;
+  }
+  
+  
+  .form .message a {
+    color: mediumvioletred;
+    text-decoration: none;
+  }
