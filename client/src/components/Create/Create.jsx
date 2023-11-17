@@ -71,14 +71,14 @@ const onCreateBlindSubmit = (data) =>{
  
     return (
         <section id="create">
-            <div className="form">
+            <div className={styles.form}>
                 <h2>ADD NEW PRODUCT</h2>
-                <form className="create-form"  onSubmit={onSubmit}>
+                <form className={styles["create-form"]}  onSubmit={onSubmit}>
                     <input value={productDetails.name} onChange={onChangeHandler} type="text" name="name" id="name" placeholder="Name" />
                     <input value={productDetails.productNumber} onChange={onChangeHandler} type="text" name="productNumber" id="productNumber" placeholder="Product Number" />
                     
-                    <div className={styles["colors-options"]}>
- 
+                    <div className={styles["colors-options"]} >
+                        <label htmlFor="colors">Colors:</label>
                         <label htmlFor="white" className="container white">white
                             <input type="checkbox" name="white" checked={productDetails.colors.white} onChange={changeColor} />
                             <span className="checkmark"></span>
@@ -126,8 +126,8 @@ const onCreateBlindSubmit = (data) =>{
  
                     </div>
                     <input value={productDetails.imageUrl} onChange={onChangeHandler} type="text" name="imageUrl" id="product-image" placeholder="Image" />
-                    <div className="category">
-                        <label className="options-label">Category</label>
+                    <div className={styles.category}>
+                        <label>Category</label>
                         <select value={productDetails.category} onChange={onChangeHandler} placeholder="Category" name="category" >
                             {/* <option value="">Category</option> */}
                             <option value="Vertical blinds">Vertical Blinds</option>
