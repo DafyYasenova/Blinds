@@ -1,7 +1,7 @@
 import styles from './Catalog.module.css';
 import { useState, useEffect } from 'react';
 import * as blindService from '../../services/blindService';
-import CatalogItem from './CatalogItem';
+import CatalogItem from './CatalogItem/CatalogItem';
 
 export default function Catalog() {
 
