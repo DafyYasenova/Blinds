@@ -10,6 +10,7 @@ export default function Footer(){
 
         </ul>
         <p>&copy; 2023 Dafy Yasenova. All Rights Reserved.</p>
+      
     </footer>
     )
 }
