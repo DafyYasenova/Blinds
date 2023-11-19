@@ -1,10 +1,11 @@
+import styles from './Header.module.css';
 import { Link } from 'react-router-dom'
 
 export default function Header(){
     return(
         <div>
         <header>
-        <section className="navigation">
+        <section className={styles.navigation}>
             <p><img src="/Images/blinds-logo.png" height="38px"/> <Link to="/"><span>BLINDS</span></Link></p>
             <nav>
                 <ul>

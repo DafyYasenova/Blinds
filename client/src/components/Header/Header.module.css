@@ -1,0 +1,16 @@
+.navigation {
+    display: block;
+    padding: 0 10px;
+    background: rgb(227, 218, 192);
+    background: linear-gradient(90deg, rgba(227, 218, 192, 1) 0%, rgba(239, 239, 229, 1) 12%);
+}
+
+.navigation p {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.navigation p span {
+    color: mediumvioletred;
+    font-size: 25px;
+}
