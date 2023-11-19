@@ -1,16 +1,24 @@
 import styles from './Footer.module.css';
-export default function Footer(){
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
+import {faEnvelope } from '@fortawesome/free-regular-svg-icons'
+
+
+export default function Footer() {
     return (
         <footer className={styles.footer}>
 
-        <ul>
-            <li><a href="https://www.facebook.com"><i className="fab fa-facebook"></i></a></li>
-            <li><a href="https://www.instagram.com"><i className="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.twitter.com"><i className="fab fa-twitter"></i></a></li>
+            <ul>
 
-        </ul>
-        <p>&copy; 2023 Dafy Yasenova. All Rights Reserved.</p>
-      
-    </footer>
+                <li><FontAwesomeIcon icon={faFacebook} /></li>
+                <li><FontAwesomeIcon icon={faTwitter} /></li>
+                <li><FontAwesomeIcon icon={faInstagram} /></li>
+                <li><FontAwesomeIcon icon={faGithub} /> </li>
+                <li><FontAwesomeIcon icon={faEnvelope} /> </li>
+
+            </ul>
+            <p>&copy; 2023 Dafy Yasenova. All Rights Reserved.</p>
+
+        </footer>
     )
 }

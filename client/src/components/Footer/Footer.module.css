@@ -19,12 +19,8 @@ footer {
     padding-left: 10px;
   }
   
-  footer ul a {
+  footer ul {
     color: mediumvioletred;
+   
   }
   
-  footer ul li i {
-    border: 1px solid mediumvioletred;
-    border-radius: 50%;
-    padding: 5px;
-  }
