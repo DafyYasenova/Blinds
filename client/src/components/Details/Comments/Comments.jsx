@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Comments.module.css';
-// import styles from '../../Details/Details.module.css';
+
 export default  function Comments  ({ addComment, comments, isCommentAreaDisabled, }) {
   const [username, setUsername] = useState('');
   const [comment, setComment] = useState('');
@@ -17,8 +17,8 @@ export default  function Comments  ({ addComment, comments, isCommentAreaDisable
 
   return (
     <div className={styles["comment-area"]} >
-      <form onSubmit={(e) => addComment(e, username, comment)}>
-        {/* <input hidden={isCommentAreaDisabled} type="text" value={username} onChange={onUsernameChange} name="username" placeholder="username" /> */}
+      <form onSubmit={(e) => addComment(e, username, comment, setComment(''))}>
+        
         <textarea
           hidden={isCommentAreaDisabled}
           id="comment-area"

@@ -10,9 +10,7 @@ import * as commentService from '../../services/commentService';
 export default function Details() {
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
-    const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true)
-    // const [username, setUsername] = useState('');
-    // const [comment, setComment] = useState('');
+    const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true);
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -41,36 +39,17 @@ export default function Details() {
     const hideShowCommentHandler = (e) => {
         e.preventDefault()
         setCommentAreaDisabled(false);
-
-
     }
-    // const addCommentHandler = async (e) => {
-    //     e.preventDefault();
-    //     const newComment = await commentService.createComment(blindId, username, comment)
 
-    //     setComments(state => [...state, newComment]);
-    //     setUsername('');
-    //     setComment('');
-    // }
-    const addCommentHandler = async (e, username, comment) => {
+    const addCommentHandler = async (e, username, comment,) => {
         e.preventDefault();
         const newComment = await commentService.createComment(blindId, username, comment);
 
         setComments((state) => [...state, newComment]);
-        // setUsername('');
-        // setComment('');
+        setCommentAreaDisabled(true)
+
     };
-    // const onUsernameChange = (e) => {
-    //     e.preventDefault();
-    //     setUsername(e.target.value);
 
-
-    // }
-    // const onCommentChange = (e) => {
-    //     e.preventDefault();
-    //     setComment(e.target.value);
-
-    // }
     return (
         <section className={styles.details}>
 
@@ -95,16 +74,6 @@ export default function Details() {
                 <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
                 <button type="submit">Buy</button>
 
-
-                {/* <div className={styles["comment-area"]} >
-                    <form onSubmit={addCommentHandler}>
-                        <input hidden={isCommentAreaDisabled} type="text" value={username.username} onChange={onUsernameChange} name="username" placeholder="username" />
-                        <textarea hidden={isCommentAreaDisabled} id="comment-area" value={comment.comment} onChange={onCommentChange} name="comment" placeholder="Your comment" rows="3"
-                            cols="40" ></textarea>
-
-                        <button hidden={isCommentAreaDisabled} onClick={setCommentAreaDisabled} type="submit" >Add comment</button>
-                    </form>
-                </div>*/}
                 <Comments
                     addComment={addCommentHandler}
                     comments={comments}
@@ -124,7 +93,7 @@ export default function Details() {
 
                     ))}
                 </ul>
-                {comments.length === 0 && <h4>No coments</h4>}
+                {comments.length === 0 && <h4>No comments yet...</h4>}
 
             </div>
         </section>

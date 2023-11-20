@@ -14,13 +14,6 @@
 .details h2, h3{
   color: mediumvioletred;
 }
-.comment-area {
-
-  padding-top: 20px;
-  display: inline-block;
-  text-align: center;
-  padding-right: 35px;
-}
 
 .image-div img{
   height: 300px;
