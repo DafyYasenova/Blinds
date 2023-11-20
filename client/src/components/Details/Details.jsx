@@ -2,6 +2,7 @@ import styles from './Details.module.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Comments from './Comments/Comments'
 
 import * as blindService from '../../services/blindService';
 import * as commentService from '../../services/commentService';
@@ -10,8 +11,8 @@ export default function Details() {
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
     const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true)
-    const [username, setUsername] = useState('');
-    const [comment, setComment] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -26,9 +27,6 @@ export default function Details() {
 
     }, [blindId])
 
-    const deleteClickHandler = () => {
-        onDeleteClick(blindId)
-    }
 
     const filterColors = (blinds) => {
         if (!blinds || !blinds.colors) {
@@ -43,28 +41,36 @@ export default function Details() {
     const hideShowCommentHandler = (e) => {
         e.preventDefault()
         setCommentAreaDisabled(false);
-     
+
 
     }
-    const addCommentHandler = async (e) => {
+    // const addCommentHandler = async (e) => {
+    //     e.preventDefault();
+    //     const newComment = await commentService.createComment(blindId, username, comment)
+
+    //     setComments(state => [...state, newComment]);
+    //     setUsername('');
+    //     setComment('');
+    // }
+    const addCommentHandler = async (e, username, comment) => {
         e.preventDefault();
-        const newComment = await commentService.createComment(blindId, username, comment)
-        
-        setComments(state => [...state, newComment]);
-        setUsername('');
-        setComment('');
-    }
-    const onUsernameChange = (e) => {
-        e.preventDefault();
-        setUsername(e.target.value);
+        const newComment = await commentService.createComment(blindId, username, comment);
+
+        setComments((state) => [...state, newComment]);
+        // setUsername('');
+        // setComment('');
+    };
+    // const onUsernameChange = (e) => {
+    //     e.preventDefault();
+    //     setUsername(e.target.value);
 
 
-    }
-    const onCommentChange = (e) => {
-        e.preventDefault();
-        setComment(e.target.value);
+    // }
+    // const onCommentChange = (e) => {
+    //     e.preventDefault();
+    //     setComment(e.target.value);
 
-    }
+    // }
     return (
         <section className={styles.details}>
 
@@ -84,13 +90,13 @@ export default function Details() {
 
 
                 <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
-                <button type="submit" onClick={deleteClickHandler}>Delete</button>
+                <button type="submit">Delete</button>
                 <button type="submit">Like</button>
                 <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
                 <button type="submit">Buy</button>
 
 
-                <div className={styles["comment-area"]} >
+                {/* <div className={styles["comment-area"]} >
                     <form onSubmit={addCommentHandler}>
                         <input hidden={isCommentAreaDisabled} type="text" value={username.username} onChange={onUsernameChange} name="username" placeholder="username" />
                         <textarea hidden={isCommentAreaDisabled} id="comment-area" value={comment.comment} onChange={onCommentChange} name="comment" placeholder="Your comment" rows="3"
@@ -98,9 +104,16 @@ export default function Details() {
 
                         <button hidden={isCommentAreaDisabled} onClick={setCommentAreaDisabled} type="submit" >Add comment</button>
                     </form>
-                </div>
+                </div>*/}
+                <Comments
+                    addComment={addCommentHandler}
+                    comments={comments}
+                    isCommentAreaDisabled={isCommentAreaDisabled}
+
+                />
             </div>
-           
+
+
             <div className={styles.comments}>
                 <h3>Comments: </h3>
                 <ul>

@@ -1,12 +1,15 @@
   .lds-roller {
+    margin-left: 47%;
     display: inline-block;
-    position: relative;
+    position:relative;
     width: 150px;
-    height: 150px;
+   
   }
-  .lds-roller div {
+  .lds-roller div { 
+   
     animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     transform-origin: 40px 40px;
+    
   }
   .lds-roller div:after {
     content: " ";

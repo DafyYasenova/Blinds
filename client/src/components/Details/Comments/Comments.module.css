@@ -1,0 +1,35 @@
+
+  .comment-area {
+
+    padding-top: 20px;
+    /* display: inline-block; */
+    display: block;
+    text-align: center;
+    padding-right: 35px;
+  }
+ .comment-area button{
+  text-align: center;
+ }
+  
+   button {
+ 
+    background: antiquewhite;
+    font-size: 18px;
+    border: 0;
+    margin: 10px 5px;
+    color: mediumvioletred;
+    box-shadow: 5px 2px 8px 5px #c19595;
+    padding: 5px 10px;
+    border-radius: 5px;
+  
+  }
+  
+   button:hover {
+    background-color: mediumvioletred;
+    font-size: 25px;
+    border: 0;
+    color: antiquewhite;
+    box-shadow: mediumvioletred (rgb(206, 206, 206));
+    cursor: pointer;
+    
+  }

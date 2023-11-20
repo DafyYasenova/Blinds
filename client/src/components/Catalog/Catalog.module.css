@@ -1,9 +1,11 @@
+
 .catalog {
 
     display: inline-block;
     color: mediumvioletred;
     font-family: "PT Serif", serif;
     padding: 5px 5px;
+   
   }
   .catalog ul{
     display: flex;
@@ -36,6 +38,7 @@
    margin:5px auto;
 
   display: block;
+ 
   }
   
   .details-btn{
@@ -51,3 +54,4 @@
     box-shadow: 5px 2px 8px 5px #c19595;
   
   }
+  

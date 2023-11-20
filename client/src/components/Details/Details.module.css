@@ -1,6 +1,5 @@
 .details img {
-  max-height: 300px;
-  
+  max-height: 300px; 
 }
 
 .details-product {
@@ -10,13 +9,10 @@
   display: block;
   font-size: 22px;
   float: right;
-
-
 }
 
 .details h2, h3{
   color: mediumvioletred;
- 
 }
 .comment-area {
 
@@ -34,6 +30,7 @@
   display: block;
   float: left;
   text-align: center;
+  
 }
 .details-product button {
 
@@ -68,13 +65,21 @@
   margin-top:350px;
   
 }
+
+.comments ul{
+  margin: 0;
+}
+.comments li{
+  display: block;
+}
 .comments p{
   padding: 0;
   margin: 0;
 }
+
 .user-icon{
   height: 18px;
 }
 .span-style span{
   color: mediumvioletred;
-}
+} 
