@@ -21,6 +21,7 @@ import Search from './components/Search/Search'
 import Edit from './components/Edit/Edit'
 import Loading from './components/Loading/Loading'
 import Delete from './components/Delete/Delete'
+import Logout from './components/Logout/Logout'
 
 
 function App() {
@@ -35,21 +36,35 @@ function App() {
 
   const loginSubmitHandler = async (values) => {
 
-    const result = await authService.login(values.email, values.password)
-    setAuth(result)
-    navigate('/')
+    const result = await authService.login(values.email, values.password);
+    setAuth(result);
+
+    localStorage.setItem('accessToken', result.accessToken);
+    navigate('/');
   };
 
   const registerSubmitHandler = async (values) => {
-    console.log(values)
+
+    const result = await authService.register(values.email, values.password, values.username)
+    setAuth(result);
+
+    localStorage.setItem('accessToken', result.accessToken);
+    navigate('/');
+  };
+
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken');
+
   }
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     username: auth.username,
     email: auth.email,
-    isAuthenticated: !!auth.email,
+    isAuthenticated: !!auth.accessToken,
   };
 
   return (
@@ -72,6 +87,7 @@ function App() {
           <Route path='/details/:blindId' element={<Details />} />
           <Route path='/details/:blindId/edit' element={<Edit />} />
           <Route path='/details/:blindId/delete' element={<Delete />} />
+          <Route path='/logout' element={<Logout />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </main>
