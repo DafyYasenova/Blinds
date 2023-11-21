@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import AuthContext from './contexts/authContext'
 
 import './App.css'
 
@@ -35,7 +36,8 @@ function App() {
 
 
   return (
-    <>
+  
+    <AuthContext.Provider value={{loginSubmitHandler}}>
       <Header />
 
       <main>
@@ -43,7 +45,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler}/>} />
+          <Route path='/login' element={<Login />} />
           <Route path='/contact-us' element={<ContactUs />} />
           <Route path='/about' element={<About />} />
           <Route path='/not-found' element={<NotFound />} />
@@ -54,17 +56,11 @@ function App() {
           <Route path='/details/:blindId/edit' element={<Edit />} />
           <Route path='/details/:blindId/delete' element={<Delete />} />
           <Route path='*' element={<NotFound />} />
-
-
-
-
         </Routes>
-
-
       </main>
 
       <Footer />
-    </>
+      </AuthContext.Provider>
   )
 }
 
