@@ -1,4 +1,4 @@
-import * as request from './requester';
+import * as request from '../lib/requester';
 
 const baseUrl = 'http://localhost:3030/jsonstore/blinds';
 

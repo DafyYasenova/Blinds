@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+
 import AuthContext from './contexts/authContext'
+import * as authService from './services/authService'
 
 import './App.css'
 
@@ -22,22 +24,26 @@ import Delete from './components/Delete/Delete'
 
 
 function App() {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [auth, setAuth] = useState({})
 
-  
+
   useEffect(() => {
-    setIsLoading(false); 
+    setIsLoading(false);
   }, []);
-  
-    const loginSubmitHandler = (values) =>{
-      console.log(values)
-    }
+
+  const loginSubmitHandler = async (values) => {
+
+    const result = await authService.login(values.email, values.password)
+    setAuth(result)
+    navigate('/')
+  }
 
 
   return (
-  
-    <AuthContext.Provider value={{loginSubmitHandler}}>
+
+    <AuthContext.Provider value={{ loginSubmitHandler }}>
       <Header />
 
       <main>
@@ -60,7 +66,7 @@ function App() {
       </main>
 
       <Footer />
-      </AuthContext.Provider>
+    </AuthContext.Provider>
   )
 }
 
