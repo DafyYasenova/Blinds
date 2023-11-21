@@ -38,14 +38,19 @@ function App() {
     const result = await authService.login(values.email, values.password)
     setAuth(result)
     navigate('/')
+  };
+
+  const registerSubmitHandler = async (values) => {
+    console.log(values)
   }
 
   const values = {
     loginSubmitHandler,
+    registerSubmitHandler,
     username: auth.username,
     email: auth.email,
     isAuthenticated: !!auth.email,
-  }
+  };
 
   return (
 
