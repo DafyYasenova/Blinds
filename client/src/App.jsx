@@ -27,7 +27,11 @@ import Logout from './components/Logout/Logout'
 function App() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-  const [auth, setAuth] = useState({})
+  const [auth, setAuth] = useState(() =>{
+    localStorage.removeItem('accessToken');
+
+    return {};
+  });
 
 
   useEffect(() => {
