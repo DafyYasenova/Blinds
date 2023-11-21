@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../../contexts/authContext';
 import { useContext } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import {faUser } from '@fortawesome/free-regular-svg-icons'
+
 export default function Header() {
     const {
         isAuthenticated,
@@ -23,6 +26,8 @@ export default function Header() {
                                     <li><Link to="/create">CREATE</Link></li>
                                     <li><Link to="/logout">LOGOUT</Link></li>
                                     <li><Link to="/search">SEARCH</Link></li>
+                                    {/* <span><img src="/Images/user-icon.jpg" className={styles['user-icon']}></img>{username}</span> */}
+                                    <span><FontAwesomeIcon icon={faUser} style={{color: "#c71585",}} />{username}</span>
                                 </>
                             )}
 
