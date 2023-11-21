@@ -24,8 +24,8 @@ export default function Header() {
                             {isAuthenticated && (
                                 <>
                                     <li><Link to="/create">CREATE</Link></li>
-                                    <li><Link to="/logout">LOGOUT</Link></li>
                                     <li><Link to="/search">SEARCH</Link></li>
+                                    <li><Link to="/logout">LOGOUT</Link></li>
                                     {/* <span><img src="/Images/user-icon.jpg" className={styles['user-icon']}></img>{username}</span> */}
                                     <span><FontAwesomeIcon icon={faUser} style={{color: "#c71585",}} />{username}</span>
                                 </>
