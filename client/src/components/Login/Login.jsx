@@ -1,14 +1,28 @@
-import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
 
-export default function Login(){
+import useForm from '../../hooks/useForm';
+
+import styles from './Login.module.css';
+
+
+const LoginFormKeys = {
+     Email: 'email',
+     Password: 'password',
+}
+export default function Login({loginSubmitHandler,
+}){
+const {values, onChange, onSubmit} = useForm(loginSubmitHandler,{
+    [LoginFormKeys.Email]: '',
+    [LoginFormKeys.Password]:'',
+});
+
     return(
         <section id="login">
             <div className={styles.form}>
                 <h2>LOGIN</h2>
-                <form  className={styles["login-form"]}>
-                    <input type="text" name="email" id="login-email" placeholder="email" />
-                    <input type="password" name="password" id="login-password" placeholder="password" />
+                <form  className={styles["login-form"]} onSubmit={onSubmit}>
+                    <input type="email" name="email" id="login-email" placeholder="email" onChange={onChange} value={values[LoginFormKeys.Email]}/>
+                    <input type="password" name="password" id="login-password" placeholder="password"  onChange={onChange} value={values[LoginFormKeys.Password]}/>
 
                     <button type="submit">login</button>
                     <p className={styles.message}>Not registered? <Link to="/register">Register now</Link></p>

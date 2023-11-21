@@ -13,7 +13,7 @@ export default function useForm(submitHandler, initilalValues) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        submitHandler();
+        submitHandler(values);
     }
     return {
         values,

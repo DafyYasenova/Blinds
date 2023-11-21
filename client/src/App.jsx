@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+
 import './App.css'
+
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Register from './components/Register/Register'
@@ -15,15 +17,22 @@ import Footer from './components/Footer/Footer'
 import Search from './components/Search/Search'
 import Edit from './components/Edit/Edit'
 import Loading from './components/Loading/Loading'
+import Delete from './components/Delete/Delete'
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, []);
+  const [auth, setAuth] = useState({})
 
   
+  useEffect(() => {
+    setIsLoading(false); 
+  }, []);
+  
+    const loginSubmitHandler = (values) =>{
+      console.log(values)
+    }
+
 
   return (
     <>
@@ -34,7 +43,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler}/>} />
           <Route path='/contact-us' element={<ContactUs />} />
           <Route path='/about' element={<About />} />
           <Route path='/not-found' element={<NotFound />} />
@@ -42,7 +51,8 @@ function App() {
           <Route path='/create' element={<Create />} />
           <Route path='/search' element={<Search />} />
           <Route path='/details/:blindId' element={<Details />} />
-          <Route path='/edit' element={<Edit />} />
+          <Route path='/details/:blindId/edit' element={<Edit />} />
+          <Route path='/details/:blindId/delete' element={<Delete />} />
           <Route path='*' element={<NotFound />} />
 
 
