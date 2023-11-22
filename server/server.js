@@ -1339,7 +1339,59 @@
     	sessions: {
     	}
     };
-    var seedData = {};
+    // var seedData = {};
+    var seedData = {blinds:[
+        {
+            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+            "name": "Vertical Grey",
+            "productNumber": "V5454",
+            "colors": {
+                "white": true,
+                "yellow": true,
+                "blue": true,
+                "purple": false,
+                "pink": true,
+                "grey": true,
+                "brown": true,
+                "beige": true,
+                "red": false,
+                "orange": false,
+                "violet": true
+            },
+            "imageUrl": "https://www.shtori-bg.com/images/products/pic_95616518.jpg",
+            "category": "",
+            "material": "cloth",
+            "description": "This is new generation on blind's world!",
+            "price": 112,
+            "_createdOn": 1700660601574,
+            "_id": "0"
+        },
+        {
+            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+            "name": "Butterfly's world",
+            "productNumber": "P5554",
+            "colors": {
+                "white": true,
+                "yellow": true,
+                "blue": true,
+                "purple": true,
+                "pink": false,
+                "grey": false,
+                "brown": true,
+                "beige": false,
+                "red": true,
+                "orange": true,
+                "violet": true
+            },
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4FzoAtXXaugKRfOERrR33OMqsrZf2FoGww&usqp=CAU",
+            "category": "Photo blinds",
+            "material": "Cotton",
+            "description": "This is a new generation in the world of blinds",
+            "price": 129,
+            "_createdOn": 1700672941479,
+            "_id": "bbcec30f-64d7-481b-872b-0d8a2db58f4e"
+        }
+    ]};
     var rules$1 = {
     	users: {
     		".create": false,
