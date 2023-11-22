@@ -1,14 +1,16 @@
 import * as request from '../lib/requester';
 
-const baseUrl = 'http://localhost:3030/jsonstore/blinds';
+const baseUrl = 'http://localhost:3030/data/blinds';
 
 export const getAll = async () => {
 
     const result = await request.get(baseUrl);
     const blinds = Object.values(result);
-    // console.log(blinds)
-
+ 
     return blinds;
+
+    // console.log(result)
+    //  return result;
 };
 
 export const create = async (blindData) => {

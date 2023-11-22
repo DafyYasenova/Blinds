@@ -20,18 +20,26 @@ export const request = async (method, url, data) => {
                 ...options.headers,
                 'X-Authorization': token
             };
+         
         };
 
     const response = await fetch(url, options);
+    console.log(response)
 
     try {
 
+    
         if(response.status === 204){
             return {};
         }
+        
         const result = await response.json();
 
         if(!response.ok){
+            if (response.status === 404 && !result) {
+                
+                return null; 
+            }
             throw result;
         }
 

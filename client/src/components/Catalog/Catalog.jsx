@@ -14,6 +14,9 @@ export default function Catalog() {
               
                 setBlinds(result);
             })
+            .catch(error => {
+                console.log(error)
+            })
           
     }, []);
 
