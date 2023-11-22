@@ -1,7 +1,8 @@
 
 .catalog {
-
-    display: inline-block;
+    min-height: 585px;
+    text-align: center;
+    display: block;
     color: mediumvioletred;
     font-family: "PT Serif", serif;
     padding: 5px 5px;
