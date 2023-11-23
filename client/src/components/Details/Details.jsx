@@ -88,7 +88,7 @@ export default function Details() {
                 <ul>
                     {comments.map(x => (
                         <li key={x._id}>
-                            <p> <img src="/Images/user-comment-icon.png" className={styles['user-icon']}></img> {x.username}: {x.comment}</p>
+                            <p> <img src="/Images/user-comment-icon.png" className={styles['user-icon']}></img> {x.owner.username}: {x.comment}</p>
                         </li>
 
                     ))}

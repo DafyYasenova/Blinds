@@ -2,10 +2,9 @@ import * as request from '../lib/requester';
 
 const baseUrl = 'http://localhost:3030/data/comments';
 
-export const createComment = async (blindId, username, comment) => {
+export const createComment = async (blindId, comment) => {
     const newComment = await request.post(baseUrl, {
         blindId,
-        username,
         comment,
     });
     // console.log('username', username)
@@ -15,7 +14,8 @@ export const createComment = async (blindId, username, comment) => {
 
 export const getAllComment = async (blindId) => {
     const query = new URLSearchParams({
-        where: `blindId="${blindId}"`
+        where: `blindId="${blindId}"`,
+        load: `owner=_ownerId:users`,
     });
     const result = await request.get(`${baseUrl}?${query}`)
     return result;
