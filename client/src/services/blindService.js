@@ -5,12 +5,12 @@ const baseUrl = 'http://localhost:3030/data/blinds';
 export const getAll = async () => {
 
     const result = await request.get(baseUrl);
-    const blinds = Object.values(result);
+    // const blinds = Object.values(result);
  
-    return blinds;
+    // return blinds;
 
-    // console.log(result)
-    //  return result;
+    // // console.log(result)
+    return result;
 };
 
 export const create = async (blindData) => {
