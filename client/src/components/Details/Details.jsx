@@ -95,7 +95,7 @@ export default function Details() {
                      {comments.length > 0 ? comments.map(comment => <OneComment key={comment._id} {...comment} />)
                         : (<h4 > No comments yet...</h4>)} 
                 </ul>
-                {/* {comments.length === 0 && <h4>No comments yet...</h4>} */}
+               
 
             </div>
         </section >

@@ -1,10 +1,11 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('http'), require('fs'), require('crypto')) :
-    typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
-}(this, (function (http, fs, crypto) { 'use strict';
+        typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
+}(this, (function (http, fs, crypto) {
+    'use strict';
 
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+    function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
     var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
     var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
@@ -13,14 +14,14 @@
     class ServiceError extends Error {
         constructor(message = 'Service Error') {
             super(message);
-            this.name = 'ServiceError'; 
+            this.name = 'ServiceError';
         }
     }
 
     class NotFoundError extends ServiceError {
         constructor(message = 'Resource not found') {
             super(message);
-            this.name = 'NotFoundError'; 
+            this.name = 'NotFoundError';
             this.status = 404;
         }
     }
@@ -28,7 +29,7 @@
     class RequestError extends ServiceError {
         constructor(message = 'Request error') {
             super(message);
-            this.name = 'RequestError'; 
+            this.name = 'RequestError';
             this.status = 400;
         }
     }
@@ -36,7 +37,7 @@
     class ConflictError extends ServiceError {
         constructor(message = 'Resource conflict') {
             super(message);
-            this.name = 'ConflictError'; 
+            this.name = 'ConflictError';
             this.status = 409;
         }
     }
@@ -44,7 +45,7 @@
     class AuthorizationError extends ServiceError {
         constructor(message = 'Unauthorized') {
             super(message);
-            this.name = 'AuthorizationError'; 
+            this.name = 'AuthorizationError';
             this.status = 401;
         }
     }
@@ -52,7 +53,7 @@
     class CredentialError extends ServiceError {
         constructor(message = 'Forbidden') {
             super(message);
-            this.name = 'CredentialError'; 
+            this.name = 'CredentialError';
             this.status = 403;
         }
     }
@@ -557,8 +558,8 @@
             if (query.pageSize) {
                 responseData = responseData.slice(0, pageSize);
             }
-    		
-    		if (query.distinct) {
+
+            if (query.distinct) {
                 const props = query.distinct.split(',').filter(p => p != '');
                 responseData = Object.values(responseData.reduce((distinct, c) => {
                     const key = props.map(p => c[p]).join('::');
@@ -794,7 +795,7 @@
     }
 
     function onRequest(context, tokens, query, body) {
-        Object.entries(body).forEach(([k,v]) => {
+        Object.entries(body).forEach(([k, v]) => {
             console.log(`${k} ${v ? 'enabled' : 'disabled'}`);
             context.util[k] = v;
         });
@@ -932,7 +933,7 @@
          * @param {Object} data Value to store. Shallow merge will be performed!
          * @return {Object} Updated entry.
          */
-         function merge(collection, id, data) {
+        function merge(collection, id, data) {
             if (!collections.has(collection)) {
                 throw new ReferenceError('Collection does not exist: ' + collection);
             }
@@ -1319,96 +1320,115 @@
 
     var identity = "email";
     var protectedData = {
-    	users: {
-    		"35c62d76-8152-4626-8712-eeb96381bea8": {
-    			email: "peter@abv.bg",
-    			username: "Peter",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"847ec027-f659-4086-8032-5173e2f9c93a": {
-    			email: "george@abv.bg",
-    			username: "George",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-    			email: "admin@abv.bg",
-    			username: "Admin",
-    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
-    	},
-    	sessions: {
-    	}
+        users: {
+            "35c62d76-8152-4626-8712-eeb96381bea8": {
+                email: "peter@abv.bg",
+                username: "Peter",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "847ec027-f659-4086-8032-5173e2f9c93a": {
+                email: "george@abv.bg",
+                username: "George",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+                email: "admin@abv.bg",
+                username: "Admin",
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            }
+        },
+        sessions: {
+        }
     };
-    // var seedData = {};
+
     var seedData = {
-        "blinds":{
+        "blinds": {
             "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7": {
-            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-            "name": "Vertical Grey",
-            "productNumber": "V5454",
-            "colors": {
-                "white": true,
-                "yellow": true,
-                "blue": true,
-                "purple": false,
-                "pink": true,
-                "grey": true,
-                "brown": true,
-                "beige": true,
-                "red": false,
-                "orange": false,
-                "violet": true
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "Vertical Grey",
+                "productNumber": "V5454",
+                "colors": {
+                    "white": true,
+                    "yellow": true,
+                    "blue": true,
+                    "purple": false,
+                    "pink": true,
+                    "grey": true,
+                    "brown": true,
+                    "beige": true,
+                    "red": false,
+                    "orange": false,
+                    "violet": true
+                },
+                "imageUrl": "https://www.shtori-bg.com/images/products/pic_95616518.jpg",
+                "category": "Vertical Blinds",
+                "material": "cloth",
+                "description": "This is new generation on blind's world!",
+                "price": 112,
+                "_createdOn": 1700660601574,
+                "_id": "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7"
             },
-            "imageUrl": "https://www.shtori-bg.com/images/products/pic_95616518.jpg",
-            "category": "Vertical Blinds",
-            "material": "cloth",
-            "description": "This is new generation on blind's world!",
-            "price": 112,
-            "_createdOn": 1700660601574,
-            "_id": "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7"
-        },
-        "bbcec30f-64d7-481b-872b-0d8a2db58f4e":{
-            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-            "name": "Butterfly's world",
-            "productNumber": "P5554",
-            "colors": {
-                "white": true,
-                "yellow": true,
-                "blue": true,
-                "purple": true,
-                "pink": false,
-                "grey": false,
-                "brown": true,
-                "beige": false,
-                "red": true,
-                "orange": true,
-                "violet": true
+            "bbcec30f-64d7-481b-872b-0d8a2db58f4e": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "Butterfly's world",
+                "productNumber": "P5554",
+                "colors": {
+                    "white": true,
+                    "yellow": true,
+                    "blue": true,
+                    "purple": true,
+                    "pink": false,
+                    "grey": false,
+                    "brown": true,
+                    "beige": false,
+                    "red": true,
+                    "orange": true,
+                    "violet": true
+                },
+                "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4FzoAtXXaugKRfOERrR33OMqsrZf2FoGww&usqp=CAU",
+                "category": "Photo blinds",
+                "material": "Cotton",
+                "description": "This is a new generation in the world of blinds",
+                "price": 129,
+                "_createdOn": 1700672941479,
+                "_id": "bbcec30f-64d7-481b-872b-0d8a2db58f4e"
             },
-            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4FzoAtXXaugKRfOERrR33OMqsrZf2FoGww&usqp=CAU",
-            "category": "Photo blinds",
-            "material": "Cotton",
-            "description": "This is a new generation in the world of blinds",
-            "price": 129,
-            "_createdOn": 1700672941479,
-            "_id": "bbcec30f-64d7-481b-872b-0d8a2db58f4e"
         },
-    }
-};
+        "comments": {
+            "3a9edc2f-4f24-4e50-99d2-62583eef500b": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "blindId": "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7",
+                "comment": "This is very smart solution for my home interior",
+                "username": "Peter",
+                "_createdOn": 1700832839485,
+                "_id": "3a9edc2f-4f24-4e50-99d2-62583eef500b"
+            },
+            "b997167a-a57b-4e9b-b96f-3d28886b9397": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "blindId": "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7",
+                "comment": "Beautiful design",
+                "username": "George",
+                "_createdOn": 1700833099851,
+                "_id": "b997167a-a57b-4e9b-b96f-3d28886b9397"
+            }
+        },
+
+    };
     var rules$1 = {
-    	users: {
-    		".create": false,
-    		".read": [
-    			"Owner"
-    		],
-    		".update": false,
-    		".delete": false
-    	},
+        users: {
+            ".create": false,
+            ".read": [
+                "Owner"
+            ],
+            ".update": false,
+            ".delete": false
+        },
     };
     var settings = {
-    	identity: identity,
-    	protectedData: protectedData,
-    	seedData: seedData,
-    	rules: rules$1
+        identity: identity,
+        protectedData: protectedData,
+        seedData: seedData,
+        rules: rules$1
     };
 
     const plugins = [
