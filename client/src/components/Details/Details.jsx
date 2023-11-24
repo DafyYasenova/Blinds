@@ -1,17 +1,21 @@
 import styles from './Details.module.css';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Comments from './Comments/Comments'
+import Comments from './Comments/Comments';
 
 import * as blindService from '../../services/blindService';
 import * as commentService from '../../services/commentService';
+// import AuthContext from '../../contexts/authContext';
+import { OneComment } from './Comments/OneComment';
 
 export default function Details() {
+    // const { username } = useContext(AuthContext)
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
     const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true);
     const [comments, setComments] = useState([]);
+    console.log("comments2", comments)
 
     useEffect(() => {
         blindService.getOne(blindId)
@@ -23,7 +27,7 @@ export default function Details() {
                 setComments(result)
             })
 
-    }, [blindId])
+    }, [blindId,])
 
 
     const filterColors = (blinds) => {
@@ -41,11 +45,13 @@ export default function Details() {
         setCommentAreaDisabled(false);
     }
 
-    const addCommentHandler = async (e, username, comment,) => {
-        e.preventDefault();
-        const newComment = await commentService.createComment(blindId, username, comment);
+    const addCommentHandler = async (data) => {
 
-        setComments((state) => [...state, newComment]);
+        const newComment = await commentService.createComment(
+            blindId,
+            data.comment, data.username);
+     
+        setComments(state=>[...state,newComment]);
         setCommentAreaDisabled(true)
 
     };
@@ -86,16 +92,12 @@ export default function Details() {
             <div className={styles.comments}>
                 <h3>Comments: </h3>
                 <ul>
-                    {comments.map(x => (
-                        <li key={x._id}>
-                            <p> <img src="/Images/user-comment-icon.png" className={styles['user-icon']}></img> {x.owner.username}: {x.comment}</p>
-                        </li>
-
-                    ))}
+                     {comments.length > 0 ? comments.map(comment => <OneComment key={comment._id} {...comment} />)
+                        : (<h4 > No comments yet...</h4>)} 
                 </ul>
-                {comments.length === 0 && <h4>No comments yet...</h4>}
+                {/* {comments.length === 0 && <h4>No comments yet...</h4>} */}
 
             </div>
-        </section>
+        </section >
     )
 }

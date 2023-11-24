@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './Comments.module.css';
+import AuthContext from '../../../contexts/authContext';
+import useForm from '../../../hooks/useForm';
 
-export default  function Comments  ({ addComment, comments, isCommentAreaDisabled, }) {
-  const [username, setUsername] = useState('');
+export default function Comments({ addComment, comments, isCommentAreaDisabled, }) {
+  
   const [comment, setComment] = useState('');
+  const { username } = useContext(AuthContext);
 
-  const onUsernameChange = (e) => {
-    e.preventDefault();
-    setUsername(e.target.value);
-  };
+  const { onSubmit, onChange, values } = useForm({
+    comment: "",
+     username,
+  }, addComment)
 
-  const onCommentChange = (e) => {
-    e.preventDefault();
-    setComment(e.target.value);
-  };
+
+  // const onCommentChange = (e) => {
+  //   e.preventDefault();
+  //   setComment(e.target.value);
+  // };
 
   return (
     <div className={styles["comment-area"]} >
-      <form onSubmit={(e) => addComment(e, username, comment, setComment(''))}>
-        
+      <form onSubmit={onSubmit}>
+
         <textarea
           hidden={isCommentAreaDisabled}
           id="comment-area"
-          value={comment}
-          onChange={onCommentChange}
+          onChange={onChange}
           name="comment"
+          value={values.comment}
+
           placeholder="Your comment"
           rows="3"
           cols="40"

@@ -14,10 +14,10 @@ const LoginFormKeys = {
 export default function Login() {
 
     const { loginSubmitHandler } = useContext(AuthContext);
-    const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
+    const { values, onChange, onSubmit } = useForm( {
         [LoginFormKeys.Email]: '',
         [LoginFormKeys.Password]: '',
-    });
+    },loginSubmitHandler);
 
     return (
         <section id="login">
