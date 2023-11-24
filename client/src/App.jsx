@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
-import AuthContext from './contexts/authContext'
+import { AuthProvider } from './contexts/authContext'
 import * as authService from './services/authService'
 
 import './App.css'
@@ -73,7 +73,7 @@ function App() {
 
   return (
 
-    <AuthContext.Provider value={values}>
+    <AuthProvider value={values}>
       <Header />
 
       <main>
@@ -97,7 +97,7 @@ function App() {
       </main>
 
       <Footer />
-    </AuthContext.Provider>
+    </AuthProvider>
   )
 }
 
