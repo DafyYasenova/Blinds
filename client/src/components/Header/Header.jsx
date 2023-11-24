@@ -4,7 +4,7 @@ import AuthContext from '../../contexts/authContext';
 import { useContext } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import {faUser } from '@fortawesome/free-regular-svg-icons'
+import {faUser } from '@fortawesome/free-regular-svg-icons';
 
 export default function Header() {
     const {

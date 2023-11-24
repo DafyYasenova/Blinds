@@ -15,7 +15,7 @@ export default function Details() {
     const [blinds, setBlinds] = useState({});
     const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true);
     const [comments, setComments] = useState([]);
-    console.log("comments2", comments)
+ 
 
     useEffect(() => {
         blindService.getOne(blindId)

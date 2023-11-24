@@ -24,7 +24,7 @@ export const create = async (blindData) => {
 export const getOne = async (blindId) => {
     const result = await request.get(`${baseUrl}/${blindId}`);
 
-    console.log(result);
+    // console.log(result);
 
     return result;
 }
