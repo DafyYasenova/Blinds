@@ -1340,8 +1340,9 @@
     	}
     };
     // var seedData = {};
-    var seedData = {blinds:[
-        {
+    var seedData = {
+        "blinds":{
+            "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7": {
             "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
             "name": "Vertical Grey",
             "productNumber": "V5454",
@@ -1359,14 +1360,14 @@
                 "violet": true
             },
             "imageUrl": "https://www.shtori-bg.com/images/products/pic_95616518.jpg",
-            "category": "",
+            "category": "Vertical Blinds",
             "material": "cloth",
             "description": "This is new generation on blind's world!",
             "price": 112,
             "_createdOn": 1700660601574,
-            "_id": "0"
+            "_id": "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7"
         },
-        {
+        "bbcec30f-64d7-481b-872b-0d8a2db58f4e":{
             "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
             "name": "Butterfly's world",
             "productNumber": "P5554",
@@ -1390,8 +1391,9 @@
             "price": 129,
             "_createdOn": 1700672941479,
             "_id": "bbcec30f-64d7-481b-872b-0d8a2db58f4e"
-        }
-    ]};
+        },
+    }
+};
     var rules$1 = {
     	users: {
     		".create": false,
