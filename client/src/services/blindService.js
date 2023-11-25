@@ -28,3 +28,9 @@ export const getOne = async (blindId) => {
 
     return result;
 }
+
+export const edit = async( blindId, blindData) =>{
+const result = await request.put(`${baseUrl}/${blindId}`, blindData);
+
+return result;
+}

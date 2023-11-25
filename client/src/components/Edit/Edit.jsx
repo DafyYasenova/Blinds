@@ -1,67 +1,143 @@
-import styles from './Edit.module.css';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
-export default function Create() {
+import styles from './Edit.module.css';
+import * as blindService from '../../services/blindService';
+
+const formInitialState = {
+    name: '',
+    productNumber: '',
+    
+    colors: {
+        white: false,
+        yellow: false,
+        blue: false,
+        purple: false,
+        pink: false,
+        grey: false,
+        brown: false,
+        beige: false,
+        red: false,
+        orange: false,
+        violet: false 
+    },
+    imageUrl: '',
+    category: '',
+    material: '',
+    description: '',
+    price: '',
+}
+
+
+export default function Edit() {
+
+    const navigate = useNavigate();
+    const [productDetails, setProductDetails] = useState(formInitialState);
+    const { blindId} = useParams();
+ 
+    const getProductDetails = (productId) => {
+        blindService.getOne(productId)
+          .then((result) => {
+            setProductDetails(result);
+          })
+          .catch((error) => {
+            console.error('Error fetching product details:', error);
+          });
+      };
+      
+      useEffect(() => {
+       
+        getProductDetails(blindId);
+      }, []);
+
+    const onChangeHandler = (e) => {
+        let {name, value, type} = e.target;
+        setProductDetails(state => ({ ...state, [name]: type === 'number' ? Number(value) : value}))
+    }
+ 
+    const changeColor = e => {
+        let value = e.target.checked;
+        let name = e.target.name;
+ 
+        setProductDetails(state => ({ ...state, colors: { ...state.colors, [name]: value } }))
+ 
+    }
+    const onSubmit = (e) => {
+        e.preventDefault();
+        onEditBlindSubmit(productDetails);
+    }
+    
+    const onEditBlindSubmit = (productDetails) => {
+        blindService.edit(blindId, productDetails)
+        .then(result => {
+            setProductDetails(result)
+            navigate(`/details/${blindId}`)
+        })
+        .catch((error) =>{
+            console.log('Error edit product', error)
+        })
+    }
     return (
         <section id="edit">
-            <div className={styles.form}>
+            <div className={styles.form} >
                 <h2>EDIT</h2>
-                <form className={styles["edit-form"]}>
-                <input  type="text" name="name" id="name" placeholder="Name" />
-                    <input  type="text" name="productNumber" id="productNumber" placeholder="Product Number" />
+                <form className={styles["edit-form"]} onSubmit={onSubmit}>
+                    <input value={productDetails.name} onChange={onChangeHandler} type="text" name="name"  placeholder="Name" />
+                    <input value={productDetails.productNumber} onChange={onChangeHandler} type="text" name="productNumber"  placeholder="Product Number" />
                     
                     <div className={styles["colors-options"]} >
                         <label htmlFor="colors">Colors:</label>
                         <label htmlFor="white" className="container white">white
-                            <input type="checkbox" name="white"  />
+                            <input type="checkbox" name="white" checked={productDetails.colors.white} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="yellow" className="container yellow">yellow
-                            <input type="checkbox" name="yellow"  />
+                            <input type="checkbox" name="yellow" checked={productDetails.colors.yellow} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="blue" className="container blue">blue
-                            <input type="checkbox" name="blue"  />
+                            <input type="checkbox" name="blue" checked={productDetails.colors.blue} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="purple" className="container purple">purple
-                            <input type="checkbox" name="purple"  />
+                            <input type="checkbox" name="purple" checked={productDetails.colors.purple} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="pink" className="container pink">pink
-                            <input type="checkbox" name="pink"  />
+                            <input type="checkbox" name="pink" checked={productDetails.colors.pink} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="grey" className="container grey">grey
-                            <input type="checkbox" name="grey"  />
+                            <input type="checkbox" name="grey" checked={productDetails.colors.grey} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="brown" className="container brown">brown
-                            <input type="checkbox" name="brown"  />
+                            <input type="checkbox" name="brown" checked={productDetails.colors.brown} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="beige" className="container beige">beige
-                            <input type="checkbox" name="beige"  />
+                            <input type="checkbox" name="beige" checked={productDetails.colors.beige} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="red" className="container red">red
-                            <input type="checkbox" name="red"  />
+                            <input type="checkbox" name="red" checked={productDetails.colors.red} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="orange" className="container orange">orange
-                            <input type="checkbox" name="orange" />
+                            <input type="checkbox" name="orange" checked={productDetails.colors.orange} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
                         <label htmlFor="violet" className="container violet">violet
-                            <input type="checkbox" name="violet" />
+                            <input type="checkbox" name="violet" checked={productDetails.colors.violet} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
  
                     </div>
-                    <input type="text" name="imageUrl" id="product-image" placeholder="Image" />
+                    <input value={productDetails.imageUrl} onChange={onChangeHandler} type="text" name="imageUrl"  placeholder="Image" />
                     <div className={styles.category}>
                         <label>Category</label>
-                        <select placeholder="Category" name="category" >
-                            {/* <option value="">Category</option> */}
+                        <select value={productDetails.category} onChange={onChangeHandler} placeholder="Category" name="category" >
+                            
                             <option value="Vertical blinds">Vertical Blinds</option>
                             <option value="Harmony Blinds">Harmony</option>
                             <option value="Day and nigth Blinds">Day and night</option>
@@ -69,11 +145,12 @@ export default function Create() {
                             <option value="Photo blinds">Photo blinds</option>
                         </select>
                     </div>
-                    <input type="text" name="material" id="material" placeholder="Material" />
-                    <textarea id="description" name="description" placeholder="Description" rows="3"
+                    <input value={productDetails.material} onChange={onChangeHandler} type="text" name="material"  placeholder="Material" />
+                    <textarea value={productDetails.description} onChange={onChangeHandler}  name="description" placeholder="Description" rows="3"
                         cols="50"></textarea>
  
-                    <input type="number" name="price" id="price" placeholder="Price for sq.m" />
+                    <input value={productDetails.price} onChange={onChangeHandler} type="number" name="price"  placeholder="Price for sq.m" />
+ 
  
  
                     <button type="submit">Edit product</button>

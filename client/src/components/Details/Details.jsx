@@ -42,14 +42,17 @@ export default function Details() {
 
     const hideShowCommentHandler = (e) => {
         e.preventDefault()
-        setCommentAreaDisabled(false);
+      
+    setCommentAreaDisabled(oldState => !oldState);
+        
+    
     }
 
     const addCommentHandler = async (data) => {
 
         const newComment = await commentService.createComment(
             blindId,
-            data.comment, data.username);
+            data.comment, data.username)
 
         setComments(state => [...state, newComment]);
         setCommentAreaDisabled(true)
@@ -81,11 +84,17 @@ export default function Details() {
                         <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
                         <button type="submit">Delete</button>
                     </>)}
-
-                <button type="submit">Like</button>
-                <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
+                    {!isOwner && (
+                        <>
+                        <button type="submit">Like</button>
+                        <button type="submit" onClick={ hideShowCommentHandler}>Comment</button>  
+                         <button type="submit">Buy</button>
+                        </>
+                    )}
+                
+                
                 <Link to={`/catalog`} ><button type="submit">Back</button></Link>
-                <button type="submit">Buy</button>
+             
 
                 <Comments
                     addComment={addCommentHandler}

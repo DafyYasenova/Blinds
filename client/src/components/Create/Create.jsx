@@ -26,10 +26,7 @@ const formInitialState = {
     description: '',
     price: '',
 }
-export default function Create(
-    
-    
-    ) {
+export default function Create() {
     const navigate = useNavigate();
     const [productDetails, setProductDetails] = useState(formInitialState) 
  
@@ -46,16 +43,12 @@ export default function Create(
         setProductDetails(state => ({ ...state, colors: { ...state.colors, [name]: value } }))
  
     }
-    // const resetHandler = () => {
-    //     console.log('reset')
-    //     setProductDetails(formInitialState);
-        
-    // }
+  
     
     const onSubmit = (e) => {
         e.preventDefault();
         onCreateBlindSubmit(productDetails);
-        // resetHandler();
+       
      
     }
 const onCreateBlindSubmit = (data) =>{
