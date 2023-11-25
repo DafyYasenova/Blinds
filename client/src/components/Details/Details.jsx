@@ -6,16 +6,16 @@ import Comments from './Comments/Comments';
 
 import * as blindService from '../../services/blindService';
 import * as commentService from '../../services/commentService';
-// import AuthContext from '../../contexts/authContext';
+import AuthContext from '../../contexts/authContext';
 import { OneComment } from './Comments/OneComment';
 
 export default function Details() {
-    // const { username } = useContext(AuthContext)
+    const { username, userId } = useContext(AuthContext)
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
     const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true);
     const [comments, setComments] = useState([]);
- 
+
 
     useEffect(() => {
         blindService.getOne(blindId)
@@ -50,11 +50,14 @@ export default function Details() {
         const newComment = await commentService.createComment(
             blindId,
             data.comment, data.username);
-     
-        setComments(state=>[...state,newComment]);
+
+        setComments(state => [...state, newComment]);
         setCommentAreaDisabled(true)
 
     };
+    const isOwner = userId === blinds._ownerId;
+
+
 
     return (
         <section className={styles.details}>
@@ -73,9 +76,12 @@ export default function Details() {
                 </article>
 
 
+                {isOwner && (
+                    <>
+                        <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
+                        <button type="submit">Delete</button>
+                    </>)}
 
-                <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
-                <button type="submit">Delete</button>
                 <button type="submit">Like</button>
                 <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
                 <Link to={`/catalog`} ><button type="submit">Back</button></Link>
@@ -93,10 +99,10 @@ export default function Details() {
             <div className={styles.comments}>
                 <h3>Comments: </h3>
                 <ul>
-                     {comments.length > 0 ? comments.map(comment => <OneComment key={comment._id} {...comment} />)
-                        : (<h4 > No comments yet...</h4>)} 
+                    {comments.length > 0 ? comments.map(comment => <OneComment key={comment._id} {...comment} />)
+                        : (<h4 > No comments yet...</h4>)}
                 </ul>
-               
+
 
             </div>
         </section >
