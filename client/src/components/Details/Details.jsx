@@ -78,6 +78,7 @@ export default function Details() {
                 <button type="submit">Delete</button>
                 <button type="submit">Like</button>
                 <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
+                <Link to={`/catalog`} ><button type="submit">Back</button></Link>
                 <button type="submit">Buy</button>
 
                 <Comments
