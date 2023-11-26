@@ -8,13 +8,15 @@ import * as blindService from '../../services/blindService';
 import * as commentService from '../../services/commentService';
 import AuthContext from '../../contexts/authContext';
 import { OneComment } from './Comments/OneComment';
+import Delete from '../Delete/Delete';
 
 export default function Details() {
-    const { username, userId } = useContext(AuthContext)
+    const { username, userId } = useContext(AuthContext);
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
     const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true);
     const [comments, setComments] = useState([]);
+    const [showDelete, setShowDelete] = useState(false);
 
 
     useEffect(() => {
@@ -60,6 +62,11 @@ export default function Details() {
     };
     const isOwner = userId === blinds._ownerId;
 
+    const  deleteClickHandler = (blindId) =>{
+        console.log('delete')
+setShowDelete(true);
+
+    }
 
 
     return (
@@ -82,7 +89,11 @@ export default function Details() {
                 {isOwner && (
                     <>
                         <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
-                        <button type="submit">Delete</button>
+                        <button type="submit" onClick={deleteClickHandler}>Delete</button>
+                        {showDelete && <Delete 
+                        onClick={deleteClickHandler} 
+                        showDelete={showDelete} 
+                        {...blindId} />}
                     </>)}
                     {!isOwner && (
                         <>
