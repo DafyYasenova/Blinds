@@ -1547,7 +1547,7 @@
         "comments": {
             "3a9edc2f-4f24-4e50-99d2-62583eef500b": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "blindId": "41cb9fad-ae1c-4c3d-aa30-d4a3d3c8c5b7",
+                "blindId": "c92f5e70-8fa5-4c7f-a9df-bf1d254aaa4c",
                 "comment": "This is very smart solution for my home interior",
                 "username": "Peter",
                 "_createdOn": 1700832839485,
