@@ -21,6 +21,7 @@ import Edit from './components/Edit/Edit'
 import Loading from './components/Loading/Loading'
 import Delete from './components/Delete/Delete'
 import Logout from './components/Logout/Logout'
+import AuthGuard from './guards/AuthGuard'
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
     setIsLoading(false);
   }, []);
 
-  
+
 
   return (
 
@@ -47,15 +48,18 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/contact-us' element={<ContactUs />} />
           <Route path='/about' element={<About />} />
-          <Route path='/not-found' element={<NotFound />} />
           <Route path='/catalog' element={<Catalog />} />
-          <Route path='/create' element={<Create />} />
+          <Route path='/not-found' element={<NotFound />} />
           <Route path='/search' element={<Search />} />
-          <Route path='/details/:blindId' element={<Details />} />
-          <Route path='/details/:blindId/edit' element={<Edit />} />
-          <Route path='/details/:blindId/delete' element={<Delete />} />
-          <Route path='/logout' element={<Logout />} />
           <Route path='*' element={<NotFound />} />
+
+          <Route element={<AuthGuard />}>
+            <Route path='/create' element={<Create />} />
+            <Route path='/details/:blindId' element={<Details />} />
+            <Route path='/details/:blindId/edit' element={<Edit />} />
+            <Route path='/details/:blindId/delete' element={<Delete />} />
+            <Route path='/logout' element={<Logout />} />
+          </Route>
         </Routes>
       </main>
 
