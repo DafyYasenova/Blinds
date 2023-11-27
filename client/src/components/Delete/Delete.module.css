@@ -31,19 +31,21 @@
 	margin-top: 200px;
   }
   
- h2{
+ .modal h2{
 	font-size: 25px;
 
  }
-.btn{
+.modal .btn{
 	margin-left: 200px;
+}
+.modal img{
+	margin-left: 233px;
 }
   @media (min-width: 930px) {
 	.modal {
 	  width: 600px;
 	  left: calc(50% - 20rem);
 	  border-radius: 10px;
-	}
-	
-  }
+	} 
   
+}

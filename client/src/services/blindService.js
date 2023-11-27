@@ -34,3 +34,6 @@ const result = await request.put(`${baseUrl}/${blindId}`, blindData);
 
 return result;
 }
+
+export const remove = async (blindId) => request.del(`${baseUrl}/${blindId}`);
+ 

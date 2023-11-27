@@ -9,6 +9,7 @@ export const request = async (method, url, data) => {
                 'Content-Type': "application/json",
             };
             options.body = JSON.stringify(data);
+           
 
         };
     };

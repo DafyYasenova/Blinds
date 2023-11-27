@@ -1,5 +1,5 @@
 import styles from './Details.module.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Comments from './Comments/Comments';
@@ -11,6 +11,7 @@ import { OneComment } from './Comments/OneComment';
 import Delete from '../Delete/Delete';
 
 export default function Details() {
+    const navigate = useNavigate();
     const { username, userId } = useContext(AuthContext);
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
@@ -29,7 +30,8 @@ export default function Details() {
                 setComments(result)
             })
 
-    }, [blindId,])
+
+    }, [blindId])
 
 
     const filterColors = (blinds) => {
@@ -43,11 +45,9 @@ export default function Details() {
     }
 
     const hideShowCommentHandler = (e) => {
-        e.preventDefault()
-      
-    setCommentAreaDisabled(oldState => !oldState);
-        
-    
+        e.preventDefault();
+
+        setCommentAreaDisabled(oldState => !oldState);
     }
 
     const addCommentHandler = async (data) => {
@@ -62,10 +62,22 @@ export default function Details() {
     };
     const isOwner = userId === blinds._ownerId;
 
-    const  deleteClickHandler = (blindId) =>{
-        console.log('delete')
-setShowDelete(true);
+    const deleteClickHandler = () => {
+        
 
+        setShowDelete(true);
+
+    }
+    
+    const onDelete = async () => {
+        try {
+            await blindService.remove(blindId);
+            navigate('/catalog');
+
+        } catch (error) {
+
+            console.log(error);
+        }
     }
 
 
@@ -90,22 +102,22 @@ setShowDelete(true);
                     <>
                         <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
                         <button type="submit" onClick={deleteClickHandler}>Delete</button>
-                        {showDelete && <Delete 
-                        onClick={deleteClickHandler} 
-                        showDelete={showDelete} 
-                        {...blindId} />}
+
+                        {showDelete && <Delete
+                            onDelete={onDelete}
+                            showDelete={showDelete}
+                            onClose={() => setShowDelete(false)}
+                            blindId />}
                     </>)}
-                    {!isOwner && (
-                        <>
+                {!isOwner && (
+                    <>
                         <button type="submit">Like</button>
-                        <button type="submit" onClick={ hideShowCommentHandler}>Comment</button>  
-                         <button type="submit">Buy</button>
-                        </>
-                    )}
-                
-                
+                        <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
+                        <button type="submit">Buy</button>
+                    </>
+                )}
+
                 <Link to={`/catalog`} ><button type="submit">Back</button></Link>
-             
 
                 <Comments
                     addComment={addCommentHandler}
@@ -122,8 +134,6 @@ setShowDelete(true);
                     {comments.length > 0 ? comments.map(comment => <OneComment key={comment._id} {...comment} />)
                         : (<h4 > No comments yet...</h4>)}
                 </ul>
-
-
             </div>
         </section >
     )

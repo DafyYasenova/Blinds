@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Delete.module.css';
 
-const DeleteModal = ({ onDelete, onClose }) => {
+const Delete = ({ onDelete, onClose }) => {
 	return (
 		<div className={styles["overlay"]}>
 			<div className={styles["backdrop"]} onClick={onClose}></div>
 			<div className={styles["modal"]}>
-
 				<h2>Are you sure you want to delete this post?</h2>
+			<p><img src="/Images/delete.png" height={"100px"} ></img></p>
 				<div className={styles["btn"]}>
 					<button type="submit" onClick={onDelete}>Delete</button>
 					<button type="button" onClick={onClose}>Cancel</button>
@@ -18,4 +18,4 @@ const DeleteModal = ({ onDelete, onClose }) => {
 	);
 };
 
-export default DeleteModal;
+export default Delete;
