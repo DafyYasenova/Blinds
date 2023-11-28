@@ -22,6 +22,7 @@ import Loading from './components/Loading/Loading'
 import Delete from './components/Delete/Delete'
 import Logout from './components/Logout/Logout'
 import AuthGuard from './guards/AuthGuard'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 
 function App() {
@@ -36,35 +37,36 @@ function App() {
 
 
   return (
+    <ErrorBoundary>
+      <AuthProvider >
+        <Header />
 
-    <AuthProvider >
-      <Header />
+        <main>
+          {isLoading && <Loading />}
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/contact-us' element={<ContactUs />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/catalog' element={<Catalog />} />
+            <Route path='/not-found' element={<NotFound />} />
+            <Route path='*' element={<NotFound />} />
 
-      <main>
-        {isLoading && <Loading />}
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/contact-us' element={<ContactUs />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/catalog' element={<Catalog />} />
-          <Route path='/not-found' element={<NotFound />} />
-          <Route path='/search' element={<Search />} />
-          <Route path='*' element={<NotFound />} />
+            <Route element={<AuthGuard />}>
+              <Route path='/create' element={<Create />} />
+              <Route path='/details/:blindId' element={<Details />} />
+              <Route path='/details/:blindId/edit' element={<Edit />} />
+              <Route path='/details/:blindId/delete' element={<Delete />} />
+              <Route path='/search' element={<Search />} />
+              <Route path='/logout' element={<Logout />} />
+            </Route>
+          </Routes>
+        </main>
 
-          <Route element={<AuthGuard />}>
-            <Route path='/create' element={<Create />} />
-            <Route path='/details/:blindId' element={<Details />} />
-            <Route path='/details/:blindId/edit' element={<Edit />} />
-            <Route path='/details/:blindId/delete' element={<Delete />} />
-            <Route path='/logout' element={<Logout />} />
-          </Route>
-        </Routes>
-      </main>
-
-      <Footer />
-    </AuthProvider>
+        <Footer />
+      </AuthProvider>
+    </ErrorBoundary>
   )
 }
 
