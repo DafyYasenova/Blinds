@@ -63,8 +63,7 @@ export default function Details() {
     const isOwner = userId === blinds._ownerId;
 
     const deleteClickHandler = () => {
-        
-
+      
         setShowDelete(true);
 
     }
@@ -107,7 +106,10 @@ export default function Details() {
                             onDelete={onDelete}
                             showDelete={showDelete}
                             onClose={() => setShowDelete(false)}
-                            blindId />}
+                            blindId
+                            blindName={blinds.name}
+                            
+                            />}
                     </>)}
                 {!isOwner && (
                     <>
