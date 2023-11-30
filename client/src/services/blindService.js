@@ -37,3 +37,9 @@ return result;
 
 export const remove = async (blindId) => request.del(`${baseUrl}/${blindId}`);
  
+export const getLatestBlinds = async() => {
+
+    const result = await request.get(`${baseUrl}?sortBy=_createdOn%20desc&offset=0&pageSize=3`)
+  
+    return result;
+}

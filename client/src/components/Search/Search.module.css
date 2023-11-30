@@ -1,55 +1,84 @@
-.search-form{
-  
-    text-align: center;
-      background: url('./Images/feya.jpg'), no-repeat, center;
-      background-size: cover;
-     height: 400px;
-      
-    }
-    .search h2, h3{
-      color: mediumvioletred;
-     text-shadow: 2px 2px antiquewhite;
-    }
-    .search input{
-      text-align: center;
-      height: 50px;
-      width: 400px;
-    }
-    .search button,
-    .details-btn{
-      
-      background: antiquewhite;
-      color: mediumvioletred;
-      width: 17%;
-      border: 0;
-      padding: 12px;
-      border-radius: 3px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 5px 2px 8px 5px #c19595;
-    
-    }
-    .search-wrapper button:hover{
-      background-color: mediumvioletred;
-      font-size: 20px;
-      border: 0;
-      color: antiquewhite;
-      
-      cursor: pointer;
-    }
-    .blind-wrapper .blind {
-     
-      padding: 20px, 20px;
-      text-align: center;
-      border-style:groove;
-      border-radius: 5px;
-      margin: 5px;
-    }
-    
-    .blind-wrapper img{
-      min-width: 180px;
-    }
-    .color{
-      display: inline-block;
-      
-      }
+.search {
+
+  text-align: center;
+  min-height: 592px;
+}
+
+.search h2 {
+  text-align: center;
+  margin: 2px;
+  color: mediumvioletred;
+  text-shadow: 2px 2px antiquewhite;
+}
+
+.search-form {
+  padding-top: 20px;
+  text-align: center;
+  background: url('/Images/feya.jpg'), no-repeat, center;
+  background-size: cover;
+
+  height: 300px;
+
+}
+
+.search input {
+  margin-bottom: 6px;
+ 
+  text-align: center;
+  border:#c19595 2px;
+  border-radius: 3px;
+  height: 38px;
+  width: 400px;
+}
+
+.search button,
+.details-btn {
+
+  background: antiquewhite;
+  color: mediumvioletred;
+  width: 17%;
+  border: 0;
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 5px 2px 8px 5px #c19595;
+
+}
+
+.search-wrapper button:hover {
+  background-color: mediumvioletred;
+  font-size: 20px;
+  border: 0;
+  color: antiquewhite;
+  cursor: pointer;
+}
+
+.blind-wrapper .blind {
+  padding: 20px, 20px;
+  text-align: center;
+  border-style: groove;
+  border-radius: 5px;
+  margin: 5px;
+}
+.blind-wrapper li:not(:last-child) {
+  padding-right: 0px;
+}
+.blind-wrapper img {
+  width: 180px;
+}
+
+.color {
+  display: inline-block;
+}
+
+.category select {
+  padding: 6px ;
+  text-align: center;
+  border: 0;
+  width: 400px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  height: 38px;
+  width: 400px;
+}
