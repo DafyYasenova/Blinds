@@ -14,7 +14,10 @@ export default function Logout(){
             logoutHandler() 
             navigate('/')
         })
-        .catch(() => navigate('/'))
+        .catch(() => {
+            logoutHandler() 
+            navigate('/login')
+        })
     }, []);
 
     return null;

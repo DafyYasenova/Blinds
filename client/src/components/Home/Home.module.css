@@ -1,5 +1,5 @@
 .site-header {
-    background: url('./Images/original_2-scaled.jpg'), no-repeat, center;
+    background: url('/Images/original_2-scaled.jpg'), no-repeat, center;
     background-size: cover;
     height: 597px;
   

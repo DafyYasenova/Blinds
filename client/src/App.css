@@ -51,13 +51,18 @@ a:hover {
   cursor: pointer;
 }
 
-main{
-  min-height:562px;
+main {
+  min-height: 562px;
 }
 
-.site-header {
-  background: url('./Images/original_2-scaled.jpg'), no-repeat, center;
-  background-size: cover;
-  height: 597px;
+.navigation {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: block;
+  padding: 0 10px;
+  background: rgb(227, 218, 192);
+  background: linear-gradient(90deg, rgba(227, 218, 192, 1) 0%, rgba(239, 239, 229, 1) 12%);
 
 }

@@ -19,6 +19,7 @@
   height: 300px;
   max-height: 300px;
   max-width: 400px;
+ 
   padding: 0px ;
   display: block;
   float: left;
@@ -69,8 +70,7 @@
   padding: 0;
   margin: 0;
 }
-
-.user-icon{
+.user-icon {
   height: 18px;
 }
 .span-style span{

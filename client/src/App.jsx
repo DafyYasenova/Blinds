@@ -51,7 +51,6 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/catalog' element={<Catalog />} />
             <Route path='/not-found' element={<NotFound />} />
-            <Route path='*' element={<NotFound />} />
 
             <Route element={<AuthGuard />}>
               <Route path='/create' element={<Create />} />
@@ -61,6 +60,7 @@ function App() {
               <Route path='/search' element={<Search />} />
               <Route path='/logout' element={<Logout />} />
             </Route>
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </main>
 
