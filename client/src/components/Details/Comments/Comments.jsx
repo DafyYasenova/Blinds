@@ -11,13 +11,7 @@ export default function Comments({ addComment, comments, isCommentAreaDisabled, 
   const { onSubmit, onChange, values } = useForm({
     comment: "",
      username,
-  }, addComment)
-
-
-  // const onCommentChange = (e) => {
-  //   e.preventDefault();
-  //   setComment(e.target.value);
-  // };
+  }, addComment);
 
   return (
     <div className={styles["comment-area"]} >

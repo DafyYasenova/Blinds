@@ -6,7 +6,7 @@
 
 .search h2 {
   text-align: center;
-  margin: 2px;
+  margin: 5px;
   color: mediumvioletred;
   text-shadow: 2px 2px antiquewhite;
 }
@@ -16,9 +16,7 @@
   text-align: center;
   background: url('/Images/feya.jpg'), no-repeat, center;
   background-size: cover;
-
   height: 300px;
-
 }
 
 .search input {
@@ -55,14 +53,16 @@
 }
 
 .blind-wrapper .blind {
-  padding: 20px, 20px;
+  padding: 10px, 10px;
   text-align: center;
   border-style: groove;
   border-radius: 5px;
-  margin: 5px;
+  margin: 0 5px 0 15px;
 }
 .blind-wrapper li:not(:last-child) {
+
   padding-right: 0px;
+ 
 }
 .blind-wrapper img {
   width: 180px;

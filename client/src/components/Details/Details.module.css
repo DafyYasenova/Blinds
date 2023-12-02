@@ -20,7 +20,7 @@
   max-height: 300px;
   max-width: 400px;
  
-  padding: 0px ;
+  padding-left: 50px ;
   display: block;
   float: left;
   text-align: center;
@@ -51,7 +51,7 @@
 }
 .comments{
   text-align: left;
-  padding-left: 30px;
+  padding-left: 50px;
   
 }
 .comments h3{

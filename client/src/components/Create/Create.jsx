@@ -2,11 +2,11 @@ import { useState } from "react"
 import styles from './Create.module.css';
 import * as blindService from '../../services/blindService';
 import { useNavigate } from "react-router-dom";
- 
+
 const formInitialState = {
     name: '',
     productNumber: '',
-    
+
     colors: {
         white: false,
         yellow: false,
@@ -18,7 +18,7 @@ const formInitialState = {
         beige: false,
         red: false,
         orange: false,
-        violet: false 
+        violet: false
     },
     imageUrl: '',
     category: '',
@@ -28,48 +28,48 @@ const formInitialState = {
 }
 export default function Create() {
     const navigate = useNavigate();
-    const [productDetails, setProductDetails] = useState(formInitialState) 
- 
- 
+    const [productDetails, setProductDetails] = useState(formInitialState)
+
+
     const onChangeHandler = (e) => {
-        let {name, value, type} = e.target;
-        setProductDetails(state => ({ ...state, [name]: type === 'number' ? Number(value) : value}))
+        let { name, value, type } = e.target;
+        setProductDetails(state => ({ ...state, [name]: type === 'number' ? Number(value) : value }))
     }
- 
+
     const changeColor = e => {
         let value = e.target.checked;
         let name = e.target.name;
- 
+
         setProductDetails(state => ({ ...state, colors: { ...state.colors, [name]: value } }))
- 
+
     }
-  
-    
+
+
     const onSubmit = (e) => {
         e.preventDefault();
         onCreateBlindSubmit(productDetails);
-       
-     
+
+
     }
-const onCreateBlindSubmit = (data) =>{
-    
-            blindService.create(productDetails)
-                .then(result => {
-                    setProductDetails(result)
-                    navigate('/catalog')
-                })
-                .catch((error) => console.log(error('Error creating blind:', error)))
-      
-}
- 
+    const onCreateBlindSubmit = (data) => {
+
+        blindService.create(productDetails)
+            .then(result => {
+                setProductDetails(result)
+                navigate('/catalog')
+            })
+            .catch((error) => console.log(error('Error creating blind:', error)))
+
+    }
+
     return (
         <section id="create">
             <div className={styles.form}>
                 <h2>ADD NEW PRODUCT</h2>
-                <form className={styles["create-form"]}  onSubmit={onSubmit}>
+                <form className={styles["create-form"]} onSubmit={onSubmit}>
                     <input value={productDetails.name} onChange={onChangeHandler} type="text" name="name" id="name" placeholder="Name" />
                     <input value={productDetails.productNumber} onChange={onChangeHandler} type="text" name="productNumber" id="productNumber" placeholder="Product Number" />
-                    
+
                     <div className={styles["colors-options"]} >
                         <label htmlFor="colors">Colors:</label>
                         <label htmlFor="white" className="container white">white
@@ -116,7 +116,7 @@ const onCreateBlindSubmit = (data) =>{
                             <input type="checkbox" name="violet" checked={productDetails.colors.violet} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
- 
+
                     </div>
                     <input value={productDetails.imageUrl} onChange={onChangeHandler} type="text" name="imageUrl" id="product-image" placeholder="Image" />
                     <div className={styles.category}>
@@ -133,12 +133,12 @@ const onCreateBlindSubmit = (data) =>{
                     <input value={productDetails.material} onChange={onChangeHandler} type="text" name="material" id="material" placeholder="Material" />
                     <textarea value={productDetails.description} onChange={onChangeHandler} id="description" name="description" placeholder="Description" rows="3"
                         cols="50"></textarea>
- 
+
                     <input value={productDetails.price} onChange={onChangeHandler} type="number" name="price" id="price" placeholder="Price for sq.m" />
- 
- 
+
+
                     <button type="submit">Add new product</button>
- 
+
                 </form>
             </div>
         </section>
