@@ -1,7 +1,7 @@
 import styles from '../../Search/Search.module.css';
 import { Link } from 'react-router-dom'
 
-export default function LatestBlind({
+export default function BlindCard({
     _id,
     name,
     imageUrl, 
