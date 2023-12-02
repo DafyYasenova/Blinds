@@ -36,10 +36,18 @@ return result;
 }
 
 export const remove = async (blindId) => request.del(`${baseUrl}/${blindId}`);
+
  
 export const getLatestBlinds = async() => {
 
-    const result = await request.get(`${baseUrl}?sortBy=_createdOn%20desc&offset=0&pageSize=3`)
+    const result = await request.get(`${baseUrl}?sortBy=_createdOn%20desc&offset=0&pageSize=3`);
+  
+    return result;
+}
+
+export const search = async(name) => {
+   
+    const result = await request.get(`${baseUrl}?where=name%20LIKE%20%22${name}%22`)
   
     return result;
 }
