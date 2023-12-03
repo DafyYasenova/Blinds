@@ -6,6 +6,7 @@ import Comments from './Comments/Comments';
 
 import * as blindService from '../../services/blindService';
 import * as commentService from '../../services/commentService';
+import * as likeService from '../../services/likeService';
 import AuthContext from '../../contexts/authContext';
 import { OneComment } from './Comments/OneComment';
 import Delete from '../Delete/Delete';
@@ -18,20 +19,37 @@ export default function Details() {
     const [isCommentAreaDisabled, setCommentAreaDisabled] = useState(true);
     const [comments, setComments] = useState([]);
     const [showDelete, setShowDelete] = useState(false);
-
+    const [likes, setLikes] = useState(0);
+    const [likeId, setLikeId] = useState("");
 
     useEffect(() => {
-        blindService.getOne(blindId)
-            .then(result => {
-                setBlinds(result)
-                return commentService.getAllComment(blindId)
-            })
-            .then(result => {
-                setComments(result)
-            })
+        const fetchData = async () => {
+            try {
+
+                const blindDetails = await blindService.getOne(blindId);
+                setBlinds(blindDetails);
+
+                const commentsResult = await commentService.getAllComment(blindId);
+                setComments(commentsResult);
+
+                const initialLikes = await likeService.getAllLikes(blindId);
+
+                setLikes(initialLikes.length);
+
+                let foundLike = initialLikes.find(el => el.userId === userId);
+
+                if (foundLike) {
+                    setLikeId(foundLike._id);
+                }
 
 
-    }, [blindId])
+            } catch (error) {
+                console.error('Error fetching details:', error);
+            }
+
+        }
+        fetchData()
+    }, [blindId]);
 
 
     const filterColors = (blinds) => {
@@ -40,15 +58,13 @@ export default function Details() {
         }
 
         const filteredColors = Object.keys(blinds.colors).filter(color => blinds.colors[color] === true);
-
         return filteredColors.join(', ');
     }
 
     const hideShowCommentHandler = (e) => {
         e.preventDefault();
-
         setCommentAreaDisabled(oldState => !oldState);
-    }
+    };
 
     const addCommentHandler = async (data) => {
 
@@ -57,17 +73,14 @@ export default function Details() {
             data.comment, data.username)
 
         setComments(state => [...state, newComment]);
-        setCommentAreaDisabled(true)
+        setCommentAreaDisabled(true);
 
     };
+
     const isOwner = userId === blinds._ownerId;
 
-    const deleteClickHandler = () => {
-      
-        setShowDelete(true);
+    const deleteClickHandler = () => setShowDelete(true);
 
-    }
-    
     const onDelete = async () => {
         try {
             await blindService.remove(blindId);
@@ -78,7 +91,28 @@ export default function Details() {
             console.log(error);
         }
     }
-
+    
+  
+    const likeClickHandler = async () => {
+        try {
+            
+            if (!likeId) {
+                const result = await likeService.addLike({ blindId, userId });
+                
+                setLikes((prevLikes) => prevLikes + 1);
+                setLikeId(result._id);
+            
+            } else {
+              await likeService.unLike(likeId);
+                setLikes((prevLikes) => prevLikes - 1);
+                setLikeId('');
+               
+                console.log('You have already liked this blind.');
+            }
+        } catch (error) {
+            console.error('Error liking blind:', error);
+        }
+    };
 
     return (
         <section className={styles.details}>
@@ -96,7 +130,6 @@ export default function Details() {
                     <p> <span>Colors: </span> {filterColors(blinds)}</p>
                 </article>
 
-
                 {isOwner && (
                     <>
                         <Link to={`/details/${blindId}/edit`} ><button type="submit" >Edit</button></Link>
@@ -108,14 +141,13 @@ export default function Details() {
                             onClose={() => setShowDelete(false)}
                             blindId
                             blindName={blinds.name}
-                            
-                            />}
+                        />}
                     </>)}
+
                 {!isOwner && (
                     <>
-                        <button type="submit">Like</button>
+                        <button type="submit" onClick={likeClickHandler}{...likes}>{likeId ? `Unlike ♥ ${likes > 0 ? likes : ''}` : `Like ${likes > 0 ? likes : ''}`}   </button>
                         <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
-                        <button type="submit">Buy</button>
                     </>
                 )}
 
@@ -125,10 +157,8 @@ export default function Details() {
                     addComment={addCommentHandler}
                     comments={comments}
                     isCommentAreaDisabled={isCommentAreaDisabled}
-
                 />
             </div>
-
 
             <div className={styles.comments}>
                 <h3>Comments: </h3>
