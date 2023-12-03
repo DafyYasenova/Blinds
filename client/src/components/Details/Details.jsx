@@ -91,22 +91,22 @@ export default function Details() {
             console.log(error);
         }
     }
-    
-  
+
+
     const likeClickHandler = async () => {
         try {
-            
+
             if (!likeId) {
                 const result = await likeService.addLike({ blindId, userId });
-                
+
                 setLikes((prevLikes) => prevLikes + 1);
                 setLikeId(result._id);
-            
+
             } else {
-              await likeService.unLike(likeId);
+                await likeService.unLike(likeId);
                 setLikes((prevLikes) => prevLikes - 1);
                 setLikeId('');
-               
+
                 console.log('You have already liked this blind.');
             }
         } catch (error) {
@@ -129,6 +129,8 @@ export default function Details() {
                     <p><span>Price: </span> {blinds.price} lv.</p>
                     <p> <span>Colors: </span> {filterColors(blinds)}</p>
                 </article>
+                
+                {likes > 0 ? <p>Likes ♥ {likes}</p> : ''}
 
                 {isOwner && (
                     <>
@@ -144,9 +146,11 @@ export default function Details() {
                         />}
                     </>)}
 
+
+
                 {!isOwner && (
                     <>
-                        <button type="submit" onClick={likeClickHandler}{...likes}>{likeId ? `Unlike ♥ ${likes > 0 ? likes : ''}` : `Like ${likes > 0 ? likes : ''}`}   </button>
+                        <button type="submit" onClick={likeClickHandler}{...likes}>{likeId ? `Unlike` : `Like`}   </button>
                         <button type="submit" onClick={hideShowCommentHandler}>Comment</button>
                     </>
                 )}
