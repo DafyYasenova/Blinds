@@ -22,7 +22,7 @@ export default function Profile() {
  <span></span>{username}'s profile<p>email: {email}</p></h2>
  
             <div className={stylesProfile.profile}>
-                <h2>Have a {myPost.length} post!</h2>
+               {myPost.length> 0 && <h2>Have a {myPost.length} post!</h2>} 
                 {myPost.length > 0 
                 ? <div >
                     <ul className={styles["blind-wrapper"]}>
