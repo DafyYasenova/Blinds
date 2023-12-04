@@ -9,8 +9,6 @@ export const request = async (method, url, data) => {
                 'Content-Type': "application/json",
             };
             options.body = JSON.stringify(data);
-           
-
         };
     };
 
@@ -21,15 +19,10 @@ export const request = async (method, url, data) => {
                 ...options.headers,
                 'X-Authorization': token
             };
-         
         };
 
     const response = await fetch(url, options);
    
-
-    try {
-
-    
         if(response.status === 204){
             return {};
         }
@@ -45,10 +38,6 @@ export const request = async (method, url, data) => {
         }
 
         return result;
-
-    } catch (error) {
-        return {};
-    }
 
 }
 
