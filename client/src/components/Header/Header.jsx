@@ -26,7 +26,7 @@ export default function Header() {
                                     <li><Link to="/create">CREATE</Link></li>
                                     <li><Link to="/search">SEARCH</Link></li>
                                     <li><Link to="/logout">LOGOUT</Link></li>
-                                    <span><FontAwesomeIcon icon={faUser} style={{color: "#c71585",}} />{username}</span>
+                                   <li><Link to="/profile"><span><FontAwesomeIcon icon={faUser} style={{color: "#c71585",}} />{username}</span></Link></li> 
                                 </>
                             )}
 

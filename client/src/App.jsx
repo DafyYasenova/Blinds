@@ -23,7 +23,7 @@ import Delete from './components/Delete/Delete'
 import Logout from './components/Logout/Logout'
 import AuthGuard from './guards/AuthGuard'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
-
+import Profile from './components/Profile/Profile'
 
 function App() {
 
@@ -59,6 +59,7 @@ function App() {
               <Route path='/details/:blindId/delete' element={<Delete />} />
               <Route path='/search' element={<Search />} />
               <Route path='/logout' element={<Logout />} />
+              <Route path='/profile' element={<Profile />} />
             </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>

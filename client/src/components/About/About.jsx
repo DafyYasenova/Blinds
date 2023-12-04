@@ -8,7 +8,7 @@ export default function About() {
                 range of models, colors, fabrics and sizes. We work on individual projects, taking into account the
                 specific requirements of each.
             </p>
-            <img src="/Images/foto-shtora.jpg" alt="{{image}}" />
+            <img src="/Images/foto-shtora.jpg" alt="blinds" />
             <h3>Types of internal blinds: </h3>
             <div>
             <span>Harmony - blind-curtain type, </span>
@@ -17,9 +17,7 @@ export default function About() {
             <span>Vertical blinds, </span>
             <span>Photo blinds </span>
             </div>
-            {/* <img src="/Images/shtora-harmoniya.jpg" alt="{{image}}" />
-        <img src="/Images/vertikalni-shtori.jpg" alt="{{image}}" />
-        <img src="/Images/perde-shtora.jpg" alt="{{image}}" /> */}
+          
         </section>
     )
 }

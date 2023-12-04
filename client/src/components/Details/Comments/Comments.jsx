@@ -4,8 +4,7 @@ import AuthContext from '../../../contexts/authContext';
 import useForm from '../../../hooks/useForm';
 
 export default function Comments({ addComment, comments, isCommentAreaDisabled, }) {
-  
-  const [comment, setComment] = useState('');
+
   const { username } = useContext(AuthContext);
 
   const { onSubmit, onChange, values } = useForm({

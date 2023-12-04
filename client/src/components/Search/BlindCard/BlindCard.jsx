@@ -12,7 +12,7 @@ export default function BlindCard({
             <img src={imageUrl} height="200px" alt={name} />
 
             <p>
-                <span className="model">{name}</span>
+                <span >{name}</span>
             </p>
             <Link to={`/details/${_id}`} className={styles["details-btn"]}>Details</Link>
 

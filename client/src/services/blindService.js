@@ -43,3 +43,9 @@ export const search = async (query) => {
 
     return result;
 }
+
+export const getMyPost = async (userId) => {
+    const result = (await getAll()).filter(blind => blind._ownerId === userId);
+
+    return result;
+}
