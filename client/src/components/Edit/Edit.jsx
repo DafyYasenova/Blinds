@@ -1,13 +1,14 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
+import validateForm from './../../utils/formValidation'
 import styles from './Edit.module.css';
 import * as blindService from '../../services/blindService';
 
 const formInitialState = {
     name: '',
     productNumber: '',
-    
+
     colors: {
         white: false,
         yellow: false,
@@ -19,7 +20,7 @@ const formInitialState = {
         beige: false,
         red: false,
         orange: false,
-        violet: false 
+        violet: false
     },
     imageUrl: '',
     category: '',
@@ -33,58 +34,65 @@ export default function Edit() {
 
     const navigate = useNavigate();
     const [productDetails, setProductDetails] = useState(formInitialState);
-    const { blindId} = useParams();
- 
+    const { blindId } = useParams();
+
+    const [errors, setErrors] = useState({});
+
     const getProductDetails = (productId) => {
         blindService.getOne(productId)
-          .then((result) => {
-            setProductDetails(result);
-          })
-          .catch((error) => {
-            console.error('Error fetching product details:', error);
-          });
-      };
-      
-      useEffect(() => {
-       
+            .then((result) => {
+                setProductDetails(result);
+            })
+            .catch((error) => {
+                console.error('Error fetching product details:', error);
+            });
+    };
+
+    useEffect(() => {
+
         getProductDetails(blindId);
-      }, []);
+    }, [blindId]); //id
 
     const onChangeHandler = (e) => {
-        let {name, value, type} = e.target;
-        setProductDetails(state => ({ ...state, [name]: type === 'number' ? Number(value) : value}))
+        let { name, value, type } = e.target;
+        setProductDetails(state => ({ ...state, [name]: type === 'number' ? Number(value) : value }))
     }
- 
+
     const changeColor = e => {
         let value = e.target.checked;
         let name = e.target.name;
- 
+
         setProductDetails(state => ({ ...state, colors: { ...state.colors, [name]: value } }))
- 
+
     }
     const onSubmit = (e) => {
         e.preventDefault();
-        onEditBlindSubmit(productDetails);
+        //    onEditBlindSubmit(productDetails);
+        const formErrors = validateForm(productDetails);
+        setErrors(formErrors);
+        if (Object.keys(formErrors).length === 0) {
+            onEditBlindSubmit(productDetails)
+        }
     }
-    
     const onEditBlindSubmit = (productDetails) => {
         blindService.edit(blindId, productDetails)
-        .then(result => {
-            setProductDetails(result)
-            navigate(`/details/${blindId}`)
-        })
-        .catch((error) =>{
-            console.log('Error edit product', error)
-        })
+            .then(result => {
+                setProductDetails(result)
+                navigate(`/details/${blindId}`)
+            })
+            .catch((error) => {
+                console.log('Error edit product', error)
+            })
     }
     return (
         <section id="edit">
             <div className={styles.form} >
                 <h2>EDIT</h2>
                 <form className={styles["edit-form"]} onSubmit={onSubmit}>
-                    <input value={productDetails.name} onChange={onChangeHandler} type="text" name="name"  placeholder="Name" />
-                    <input value={productDetails.productNumber} onChange={onChangeHandler} type="text" name="productNumber"  placeholder="Product Number" />
-                    
+                    <input value={productDetails.name} onChange={onChangeHandler} type="text" name="name" placeholder="Name" />
+                    {errors.name && <p className={styles["error-message"]}>{errors.name}</p>}
+                    <input value={productDetails.productNumber} onChange={onChangeHandler} type="text" name="productNumber" placeholder="Product Number" />
+                    {errors.productNumber && <p className={styles["error-message"]}>{errors.productNumber}</p>}
                     <div className={styles["colors-options"]} >
                         <label htmlFor="colors">Colors:</label>
                         <label htmlFor="white" className="container white">white
@@ -131,28 +139,33 @@ export default function Edit() {
                             <input type="checkbox" name="violet" checked={productDetails.colors.violet} onChange={changeColor} />
                             <span className="checkmark"></span>
                         </label>
- 
+                        {errors.colors && <p className={styles["error-message"]}>{errors.colors}</p>}
                     </div>
-                    <input value={productDetails.imageUrl} onChange={onChangeHandler} type="text" name="imageUrl"  placeholder="Image" />
+                    <input value={productDetails.imageUrl} onChange={onChangeHandler} type="text" name="imageUrl" placeholder="Image" />
+                    {errors.imageUrl && <p className={styles["error-message"]}>{errors.imageUrl}</p>}
                     <div className={styles.category}>
                         <label>Category</label>
                         <select value={productDetails.category} onChange={onChangeHandler} placeholder="Category" name="category" >
-                            
+
                             <option value="Vertical blinds">Vertical Blinds</option>
                             <option value="Harmony Blinds">Harmony</option>
                             <option value="Day and nigth Blinds">Day and night</option>
                             <option value="Aluminium horizontal blinds">Aluminium horizontal blinds</option>
                             <option value="Photo blinds">Photo blinds</option>
                         </select>
+                        {errors.category && <p className={styles['error-message']}>{errors.category}</p>}
+          
                     </div>
-                    <input value={productDetails.material} onChange={onChangeHandler} type="text" name="material"  placeholder="Material" />
-                    <textarea value={productDetails.description} onChange={onChangeHandler}  name="description" placeholder="Description" rows="3"
+                    <input value={productDetails.material} onChange={onChangeHandler} type="text" name="material" placeholder="Material" />
+                    {errors.material && <p className={styles["error-message"]}>{errors.material}</p>}
+                    <textarea value={productDetails.description} onChange={onChangeHandler} name="description" placeholder="Description" rows="3"
                         cols="50"></textarea>
- 
-                    <input value={productDetails.price} onChange={onChangeHandler} type="number" name="price"  placeholder="Price for sq.m" />
- 
- 
- 
+                          {errors.description && <p className={styles["error-message"]}>{errors.description}</p>}
+
+                    <input value={productDetails.price} onChange={onChangeHandler} type="number" name="price" placeholder="Price for sq.m" />
+                    {errors.price && <p className={styles["error-message"]}>{errors.price}</p>}
+
+
                     <button type="submit">Edit product</button>
 
                 </form>
