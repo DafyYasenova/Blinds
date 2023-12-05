@@ -8,7 +8,7 @@ The project was developed during the React JS course at Software University.
 # Installation and Getting Started
 To set up the project:
 
-Clone the repository.
+Clone the repository: https://github.com/DafyYasenova/Blinds.git
 Navigate to the project folder.
 
 Client side:
