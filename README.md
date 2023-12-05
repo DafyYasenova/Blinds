@@ -1,4 +1,4 @@
-# Blinds
+# "Blinds"
 React JS course project
 
 # Overview:
