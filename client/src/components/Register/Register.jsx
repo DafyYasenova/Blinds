@@ -1,65 +1,47 @@
 import { useContext } from 'react';
-import AuthContext from '../../contexts/authContext';
+import AuthContext, { useAuthContext } from '../../contexts/authContext';
 import useForm from '../../hooks/useForm';
+import './register.css';
 
 import styles from './Register.module.css';
 import { Link } from 'react-router-dom';
 
-const RegisterFormKeys = {
-    Email: 'email',
-    Username: 'username',
-    Password: 'password',
-    RePassword: 're-password',
-}
-
 export default function Register() {
+    const { errorsRegister, errorMessage } = useAuthContext()
     const { registerSubmitHandler } = useContext(AuthContext);
-    const { values, onChange, onSubmit } = useForm( {
-        [RegisterFormKeys.Email]: '',
-        [RegisterFormKeys.Username]: '',
-        [RegisterFormKeys.Password]: '',
-        [RegisterFormKeys.RePassword]: '',
-    },registerSubmitHandler)
+
+    const { values, onChange, onSubmit } = useForm({
+        email: "",
+        username: "",
+        password: "",
+        confirmPassword: '',
+    }, registerSubmitHandler);
+
     return (
         <section id="register">
             <div className={styles.form}>
                 <h2>REGISTER</h2>
-                <form className={styles["register-form"]} onSubmit={onSubmit} >
-                    <input
-                        type="email"
-                        name="email"
-                        id="register-email"
-                        placeholder="email"
-                        onChange={onChange}
-                        values={values[RegisterFormKeys.Email]} />
 
-                    <input
-                        type="text"
-                        name="username"
-                        id="register-username"
-                        placeholder="username"
-                        onChange={onChange}
-                        values={values[RegisterFormKeys.Username]} />
+                <form className={styles["register-form"]} onSubmit={onSubmit}>
 
-                    <input
-                        type="password"
-                        name="password"
-                        id="register-password"
-                        placeholder="password"
-                        onChange={onChange}
-                        values={values[RegisterFormKeys.Password]} />
+                    <input type="email" className={errorsRegister.email ? "error-register" : ""} name="email" id="register-email" placeholder="email" onChange={onChange} value={values.email} />
 
-                    <input
-                        type="password"
-                        name="re-password"
-                        id="repeat-password"
-                        placeholder="repeat password"
-                        onChange={onChange}
-                        values={values[RegisterFormKeys.RePassword]} />
+                    <input type="text" className={errorsRegister.username ? "error-register" : ""} name="username" id="register-username" placeholder="username" onChange={onChange} value={values.username} />
 
-                    <button type="submit">register</button>
-                    <p className={styles.message}>Already registered? <Link to="/login">Login now</Link></p>
+                    <input type="password" className={errorsRegister.password ? "error-register" : ""} name="password" id="register-password" placeholder="password" onChange={onChange} value={values.password} />
+
+                    <input type="password" className={errorsRegister.repeat ? "error-register" : ""} name="confirmPassword" id="register-confirmPassword" placeholder="confirmPassword " onChange={onChange} values={values.confirmPassword} />
+
+                    <button type="submit">Register</button>
+
+                    <p className={styles.message}>Not registered? <Link to="/register">Login now</Link></p>
                 </form>
+
+                {errorMessage.length > 0 && (
+                    <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+                        <p>{errorMessage}</p>
+                    </div>
+                )}
             </div>
         </section>
     )

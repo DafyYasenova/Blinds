@@ -1,0 +1,33 @@
+.error-register{
+    border: 1px solid mediumvioletred;
+    color: mediumvioletred;
+  }
+  .error-message {
+    position: fixed;
+    top: 130px;;
+    left: 100%;
+    transform: translateX(-100%);
+   
+    color: antiquewhite;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    z-index:1000;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+    animation: slideIn 0.5s ease-in-out;
+     background-color: mediumvioletred;
+    color: antiquewhite; 
+  }
+  .error-message.show-error {
+    opacity: 1; 
+  }
+  .error-message.custom-style {
+    opacity: 1; 
+    background-color: mediumvioletred; 
+    color: antiquewhite ;
+  }
+  .error-message.custom-style p{
+    font-size: 18px;
+    color: antiquewhite;
+  }
