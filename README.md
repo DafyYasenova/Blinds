@@ -1,4 +1,4 @@
-# Blinds
+# "Blinds"
 React JS course project
 
 # Overview:
@@ -8,7 +8,8 @@ The project was developed during the React JS course at Software University.
 # Installation and Getting Started
 To set up the project:
 
-Clone the repository.
+Clone the repository: https://github.com/DafyYasenova/Blinds.git
+
 Navigate to the project folder.
 
 Client side:
@@ -39,9 +40,9 @@ When starting the search page, 3 latest published blinds appear. During a search
 - Profile page: every registered and logged in user has access to his profile page, which contains information about the user himself, as well as all the posts created by him.
 
 # Technologies
-React library
-React-router-dom
-styles-components
+- React library
+- React-router-dom
+- styles-components
 # License
 This project is licensed under the MIT License.
 # Notice:
