@@ -8,9 +8,11 @@ export const OneComment = ({
         <>
             <li>
                 <p>
-                     <img src="/Images/user-comment-icon.png" 
+                <img src="/Images/user-comment-icon.png" 
                 className={styles['user-icon']}></img> 
-                {username}: {comment}</p>
+                {username}: {comment}
+               
+                </p>
             </li>
         </>
     )

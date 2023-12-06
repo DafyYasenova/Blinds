@@ -30,11 +30,11 @@ export default function Register() {
 
                     <input type="password" className={errorsRegister.password ? "error-register" : ""} name="password" id="register-password" placeholder="password" onChange={onChange} value={values.password} />
 
-                    <input type="password" className={errorsRegister.repeat ? "error-register" : ""} name="confirmPassword" id="register-confirmPassword" placeholder="confirmPassword " onChange={onChange} values={values.confirmPassword} />
+                    <input type="password" className={errorsRegister.repeat ? "error-register" : ""} name="confirmPassword" id="register-confirmPassword" placeholder="confirm password " onChange={onChange} values={values.confirmPassword} />
 
                     <button type="submit">Register</button>
 
-                    <p className={styles.message}>Not registered? <Link to="/register">Login now</Link></p>
+                    <p className={styles.message}>Not registered? <Link to="/login">Login now</Link></p>
                 </form>
 
                 {errorMessage.length > 0 && (

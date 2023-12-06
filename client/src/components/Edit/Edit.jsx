@@ -51,7 +51,7 @@ export default function Edit() {
     useEffect(() => {
 
         getProductDetails(blindId);
-    }, [blindId]); //id
+    }, [blindId]); 
 
     const onChangeHandler = (e) => {
         let { name, value, type } = e.target;
