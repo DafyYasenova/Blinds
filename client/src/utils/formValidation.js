@@ -1,5 +1,5 @@
 
-export default function validateForm(values) {
+export default function (values) {
     let errors = {};
 
     const imageUrlPattern = /^https?:\/\//;
@@ -28,7 +28,7 @@ export default function validateForm(values) {
     if (!values.material) {
         errors.material = 'Material is required'
     } else if (values.material.length < 3 || values.material.length > 20) {
-        errors.material = 'Name must be between 3 and 20 characters'
+        errors.material = 'Material must be between 3 and 20 characters'
     }
 
     if (!values.description) {

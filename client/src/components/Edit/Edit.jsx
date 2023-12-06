@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
-import validateForm from './../../utils/formValidation'
+import validateForm from './../../utils/formValidation';
 import styles from './Edit.module.css';
 import * as blindService from '../../services/blindService';
 
@@ -67,7 +67,7 @@ export default function Edit() {
     }
     const onSubmit = (e) => {
         e.preventDefault();
-        //    onEditBlindSubmit(productDetails);
+    
         const formErrors = validateForm(productDetails);
         setErrors(formErrors);
         if (Object.keys(formErrors).length === 0) {
