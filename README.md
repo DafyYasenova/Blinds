@@ -54,3 +54,4 @@ When starting the search page, 3 latest published blinds appear. During a search
 This project is licensed under the MIT License.
 # Notice:
 The app is not responsive. To look good on screens larger than 15.6 inches, please increase your resolution.
+# Demo: https://www.youtube.com/watch?v=QrPJZCeZ58M
