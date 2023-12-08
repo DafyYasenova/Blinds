@@ -33,7 +33,8 @@ Run the project and enjoy!
 
 
 # Features:
-* Authentication: Done by registering and logging in to the system
+## Authentication: 
+Done by registering and logging in to the system
 * Home page: Visible to everyone logged into the app.
 * About page: Shows some background and information about the blinds. The page is visible to everyone logged into the app.
 * Contact: can be accessed by everyone.
