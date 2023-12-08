@@ -21,6 +21,7 @@ Server side: use practice server SoftUni, having initialized ready posts.
 There are registered users with email and password:
 
 peter@abv.bg : 123456
+
 george@abv.bg : 123456
 
 - Open new terminal
