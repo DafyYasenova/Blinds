@@ -11,13 +11,13 @@ export default function About() {
             <img src="/Images/foto-shtora.jpg" alt="blinds" />
             <h3>Types of internal blinds: </h3>
             <div>
-            <span>Harmony - blind-curtain type, </span>
-            <span>Day and night, </span>
-            <span>Aluminum horizontal blinds, </span>
-            <span>Vertical blinds, </span>
-            <span>Photo blinds </span>
+                <span>Harmony - blind-curtain type, </span>
+                <span>Day and night, </span>
+                <span>Aluminum horizontal blinds, </span>
+                <span>Vertical blinds, </span>
+                <span>Photo blinds </span>
             </div>
-          
+
         </section>
     )
 }
