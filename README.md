@@ -16,7 +16,13 @@ Client side:
 - navigate to client folder: cd client
 - npm run dev
 
-Server side: use practice server SoftUni.
+Server side: use practice server SoftUni, having initialized ready posts.
+
+There are registered users with email and password:
+
+peter@abv.bg : 123456
+george@abv.bg : 123456
+
 - Open new terminal
 - Navigate to server: cd server
 - Install all dependencies using: npm install
