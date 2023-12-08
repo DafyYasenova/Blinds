@@ -3,19 +3,14 @@ export default function (values) {
     let errors = {};
 
     const imageUrlPattern = /^https?:\/\//;
-    const namePatern = /^[a-zA-Z0-9 ]+$/;
 
     if (!values.name) {
         errors.name = 'Name is required'
     } else if (values.name.length < 3 || values.name.length > 20) {
         errors.name = 'Name must be between 3 and 20 characters'
-    } else if (!namePatern.test(values.name)) {
-        errors.name = 'Name must includes alphanumeric characters and digits'
     }
     if (!values.productNumber) {
         errors.productNumber = 'Product number is required'
-    } else if (!namePatern.test(values.productNumber)) {
-        errors.productNumber = 'Product number must includes alphanumeric characters and digits'
     } else if (values.productNumber.length < 3 || values.productNumber.length > 20) {
         errors.productNumber = 'Product number must be between 3 and 20 characters'
     }
@@ -39,8 +34,8 @@ export default function (values) {
 
     if (!values.price) {
         errors.price = 'Price is required'
-    } else if (values.price <= 0 || values.price > 1000) {
-        errors.price = 'Price should be between 1 and 1000'
+    } else if (values.price <= 0 || values.price > 100000) {
+        errors.price = 'Price should be between 1 and 100000'
     }
     if (!values.category) {
         errors.category = 'Category is required';

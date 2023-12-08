@@ -11,8 +11,10 @@ import AuthContext from '../../contexts/authContext';
 import { OneComment } from './Comments/OneComment';
 import Delete from '../Delete/Delete';
 
+
 export default function Details() {
     const navigate = useNavigate();
+
     const { username, userId } = useContext(AuthContext);
     const { blindId } = useParams();
     const [blinds, setBlinds] = useState({});
@@ -24,8 +26,8 @@ export default function Details() {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
 
+            try {
                 const blindDetails = await blindService.getOne(blindId);
                 setBlinds(blindDetails);
 
@@ -42,13 +44,11 @@ export default function Details() {
                     setLikeId(foundLike._id);
                 }
 
-
             } catch (error) {
                 console.error('Error fetching details:', error);
             }
-
         }
-        fetchData()
+        fetchData();
     }, [blindId]);
 
 
@@ -68,13 +68,17 @@ export default function Details() {
 
     const addCommentHandler = async (data) => {
 
-        const newComment = await commentService.createComment(
-            blindId,
-            data.comment, data.username)
+        try {
+            const newComment = await commentService.createComment(
+                blindId,
+                data.comment, data.username)
 
-        setComments(state => [...state, newComment]);
-        setCommentAreaDisabled(true);
+            setComments(state => [...state, newComment]);
+            setCommentAreaDisabled(true);
 
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const isOwner = userId === blinds._ownerId;
@@ -87,7 +91,6 @@ export default function Details() {
             navigate('/catalog');
 
         } catch (error) {
-
             console.log(error);
         }
     }
@@ -129,7 +132,7 @@ export default function Details() {
                     <p><span>Price: </span> {blinds.price} lv.</p>
                     <p> <span>Colors: </span> {filterColors(blinds)}</p>
                 </article>
-                
+
                 {likes > 0 ? <p>Likes ♥ {likes}</p> : ''}
 
                 {isOwner && (
@@ -145,8 +148,6 @@ export default function Details() {
                             blindName={blinds.name}
                         />}
                     </>)}
-
-
 
                 {!isOwner && (
                     <>

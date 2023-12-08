@@ -21,6 +21,7 @@ export const request = async (method, url, data) => {
             };
         };
 
+        try{
     const response = await fetch(url, options);
    
         if(response.status === 204){
@@ -33,12 +34,16 @@ export const request = async (method, url, data) => {
             if (response.status === 404 && !result) {
                 
                 return null; 
-            }
-            throw result;
+            } 
+                throw result;
+            
         }
 
         return result;
-
+    }catch(error){
+        console.log('Request error:', error);
+        throw error;
+    }
 }
 
 export const get = request.bind(null, 'GET');
