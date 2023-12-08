@@ -152,7 +152,7 @@ export default function Create() {
                     {errors.price && <p className={styles["error-message"]}>{errors.price}</p>}
 
 
-                    <button type="submit">Add new product</button>
+                    <button type="submit">Add</button>
 
                 </form>
             </div>
