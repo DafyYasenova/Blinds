@@ -2,7 +2,7 @@
 React JS course project
 
 # Overview:
-Blinds is an online app for interior blinds. In it you can find a wide variety of models and colors. 
+'Blinds' is an online app for interior blinds. In it you can find a wide variety of models and colors. 
 The project was developed during the React JS course at Software University.
 
 # Installation and Getting Started
@@ -47,9 +47,9 @@ When starting the search page, 3 latest published blinds appear. During a search
 - Profile page: every registered and logged in user has access to his profile page, which contains information about the user himself, as well as all the posts created by him.
 
 # Technologies
-- React library
+- React library, Vite
 - React-router-dom
-- styles-components
+- HTML/CSS
 # License
 This project is licensed under the MIT License.
 # Notice:
