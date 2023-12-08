@@ -1,4 +1,4 @@
-# "Blinds"
+# Blinds
 React JS course project
 
 # Overview:
@@ -50,11 +50,14 @@ This page contains information such as name of the blind, product number, catego
 - Logged in users can like/dislike the respective post, add comment in dropdown section, but only if they are not the creator of the connected post.
 - Edit page - every logged in user can edit their posts.
 - Delete -  every logged in user can delete their posts.
-## Create page: Visible only for logged in users.
-## Search page: Accessible page only for logged in user. In it you can search for a specific product by name.
+## Create page: 
+Visible only for logged in users.
+## Search page: 
+Accessible page only for logged in user. In it you can search for a specific product by name.
 - When starting the search page, 3 latest published blinds appear. 
 - During a search, this section is hidden and the relevant search results or caption, if none are found, appear in its place.
-## Profile page: every registered and logged in user has access to his profile page, which contains information about the user himself, as well as all the posts created by him.
+## Profile page: 
+Every registered and logged in user has access to his profile page, which contains information about the user himself, as well as all the posts created by him.
 
 # Technologies
 - React library
