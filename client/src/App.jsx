@@ -24,6 +24,7 @@ import Logout from './components/Logout/Logout'
 import AuthGuard from './guards/AuthGuard'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 import Profile from './components/Profile/Profile'
+import {UserGuard} from './guards/AuthGuard'
 
 function App() {
 
@@ -45,8 +46,15 @@ function App() {
           {isLoading && <Loading />}
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
+
+            <Route path='/register' element={<UserGuard>
+              <Register />
+            </UserGuard>} />
+
+            <Route path='/login' element={<UserGuard>
+              <Login />
+            </UserGuard>} />
+
             <Route path='/contact-us' element={<ContactUs />} />
             <Route path='/about' element={<About />} />
             <Route path='/catalog' element={<Catalog />} />
